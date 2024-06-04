@@ -6,9 +6,11 @@ package com.mycompany.teamproject;
 
 import java.awt.EventQueue;
 import java.awt.GridLayout;
+import java.util.List;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -54,14 +56,34 @@ public class StudentView extends JFrame {
     }
 
     private void openExam(String examName) {
-        // Open the chosen exam with content and fillable boxes
-        // You can create a new frame or panel for this purpose
+    // Get the list of exercises
+    List<Exercise> exercises = new IELTS_Exercises().getExercises();
+    
+    // Check if the list is not empty
+    if (!exercises.isEmpty()) {
+        // Get the first exercise from the list
+        Exercise firstExercise = exercises.get(0);
+
+        // Open the exam frame with the first exercise details
         JFrame examFrame = new JFrame(examName);
         examFrame.setSize(600, 400);
+
         // Add content and fillable boxes for answers
-        // ...
+        JPanel contentPanel = new JPanel();
+        // Assuming you want to display the question text
+        JLabel questionLabel = new JLabel(firstExercise.getQuestion());
+        contentPanel.add(questionLabel);
+
+        // You can add more components to display options and collect answers here
+
+        examFrame.add(contentPanel);
         examFrame.setVisible(true);
+    } else {
+        // Show a message if there are no exercises available
+        JOptionPane.showMessageDialog(this, "No exercises available!");
     }
+}
+
 
     public static void main(String[] args) {
         EventQueue.invokeLater(() -> {

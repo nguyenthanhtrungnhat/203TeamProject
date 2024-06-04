@@ -12,6 +12,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class ManagerView extends JFrame {
 
@@ -31,9 +34,11 @@ public class ManagerView extends JFrame {
         JButton addExerciseButton = new JButton("Add Exercise");
         addExerciseButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                // Handle adding exercises
+                IELTS_Exercises iELTS_Exercises=new IELTS_Exercises();
+                iELTS_Exercises.loadExercisesFromFile();
+                
             }
-        });
+        }); 
         managerPanel.add(addExerciseButton);
 
         JButton editExerciseButton = new JButton("Edit Exercise");
@@ -43,14 +48,6 @@ public class ManagerView extends JFrame {
             }
         });
         managerPanel.add(editExerciseButton);
-
-        JButton viewExercisesButton = new JButton("View All Exercises");
-        viewExercisesButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                // Handle viewing all exercises
-            }
-        });
-        managerPanel.add(viewExercisesButton);
 
         JButton manageAccountsButton = new JButton("Manage Accounts");
         manageAccountsButton.addActionListener(new ActionListener() {
@@ -62,5 +59,5 @@ public class ManagerView extends JFrame {
 
         return managerPanel;
     }
+   
 }
-

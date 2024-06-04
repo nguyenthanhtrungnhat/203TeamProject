@@ -19,7 +19,7 @@ public class IELTS_Exercises {
     }
 
     // Load exercises from a file
-    private void loadExercisesFromFile() {
+    public void loadExercisesFromFile() {
         try (Scanner scanner = new Scanner(new File("exercises.txt"))) {
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
