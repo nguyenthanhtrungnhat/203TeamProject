@@ -86,17 +86,27 @@ public class MainFrame extends JFrame {
         boolean isManager = managerRadioButton.isSelected();
 
         Account account = Account.login(username, password);
-        if (account != null && account.isManager() == isManager) {
-            JOptionPane.showMessageDialog(this, "Login successful!");
-            // Navigate to appropriate view based on the user's role
-            if (isManager) {
-                // Show manager view
+        if (account != null) {
+            if (account.isManager() == isManager) {
+                JOptionPane.showMessageDialog(this, "Login successful!");
+                if (isManager) {
+                    // Open manager view
+                } else {
+                    // Open student view
+                    openStudentView();
+                }
             } else {
-                // Show student view
+                JOptionPane.showMessageDialog(this, "Invalid role!");
             }
         } else {
-            JOptionPane.showMessageDialog(this, "Invalid credentials or role!");
+            JOptionPane.showMessageDialog(this, "Invalid credentials!");
         }
+    }
+
+    private void openStudentView() {
+        EventQueue.invokeLater(() -> {
+            new StudentView().setVisible(true);
+        });
     }
 
     private void createAccount() {
