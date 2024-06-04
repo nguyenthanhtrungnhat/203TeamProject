@@ -4,26 +4,26 @@
  */
 package com.mycompany.teamproject;
 
-import java.awt.EventQueue;
-import java.awt.GridLayout;
-import java.util.List;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
+
 
 /**
  *
  * @author Dell
  */
+import java.awt.*;
+import java.util.List;
+import javax.swing.*;
+
 public class StudentView extends JFrame {
+    private IELTS_Exercises ieltsExercises;
 
     public StudentView() {
         setTitle("Student View");
         setSize(400, 300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);  // Center the frame
+
+        ieltsExercises = new IELTS_Exercises();
 
         JPanel examSelectionPanel = createExamSelectionPanel();
         add(examSelectionPanel);
@@ -36,16 +36,15 @@ public class StudentView extends JFrame {
         JLabel titleLabel = new JLabel("Choose an exam:");
         panel.add(titleLabel);
 
-        // Add buttons or dropdown menu for exam selection
         JButton exam1Button = new JButton("Exam 1");
         JButton exam2Button = new JButton("Exam 2");
         JButton exam3Button = new JButton("Exam 3");
         JButton exam4Button = new JButton("Exam 4");
 
-        exam1Button.addActionListener(e -> openExam("Exam 1"));
-        exam2Button.addActionListener(e -> openExam("Exam 2"));
-        exam3Button.addActionListener(e -> openExam("Exam 3"));
-        exam4Button.addActionListener(e -> openExam("Exam 4"));
+        exam1Button.addActionListener(e -> openExam(0));
+        exam2Button.addActionListener(e -> openExam(1));
+        exam3Button.addActionListener(e -> openExam(2));
+        exam4Button.addActionListener(e -> openExam(3));
 
         panel.add(exam1Button);
         panel.add(exam2Button);
@@ -55,35 +54,31 @@ public class StudentView extends JFrame {
         return panel;
     }
 
-    private void openExam(String examName) {
-    // Get the list of exercises
-    List<Exercise> exercises = new IELTS_Exercises().getExercises();
-    
-    // Check if the list is not empty
-    if (!exercises.isEmpty()) {
-        // Get the first exercise from the list
-        Exercise firstExercise = exercises.get(0);
+    private void openExam(int examIndex) {
+        List<Exercise> exercises = ieltsExercises.getExercises();
 
-        // Open the exam frame with the first exercise details
-        JFrame examFrame = new JFrame(examName);
-        examFrame.setSize(600, 400);
+        if (!exercises.isEmpty() && examIndex >= 0 && examIndex < exercises.size()) {
+            Exercise exercise = exercises.get(examIndex);
+            String[] answers = exercise.getAnswers();
 
-        // Add content and fillable boxes for answers
-        JPanel contentPanel = new JPanel();
-        // Assuming you want to display the question text
-        JLabel questionLabel = new JLabel(firstExercise.getQuestion());
-        contentPanel.add(questionLabel);
+            JFrame examFrame = new JFrame("Exam");
+            examFrame.setSize(600, 400);
 
-        // You can add more components to display options and collect answers here
+            JPanel contentPanel = new JPanel(new GridLayout(7, 1));
+            JLabel questionLabel = new JLabel("Question: " + exercise.getExerciseData());
+            contentPanel.add(questionLabel);
 
-        examFrame.add(contentPanel);
-        examFrame.setVisible(true);
-    } else {
-        // Show a message if there are no exercises available
-        JOptionPane.showMessageDialog(this, "No exercises available!");
+            for (int i = 0; i < answers.length; i++) {
+                JLabel answerLabel = new JLabel("Option " + (char) ('A' + i) + ": " + answers[i]);
+                contentPanel.add(answerLabel);
+            }
+
+            examFrame.add(contentPanel);
+            examFrame.setVisible(true);
+        } else {
+            JOptionPane.showMessageDialog(this, "No exercises available for the selected exam!");
+        }
     }
-}
-
 
     public static void main(String[] args) {
         EventQueue.invokeLater(() -> {
