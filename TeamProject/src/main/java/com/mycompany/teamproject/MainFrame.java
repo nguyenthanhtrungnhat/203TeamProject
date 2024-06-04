@@ -4,17 +4,15 @@
  */
 package com.mycompany.teamproject;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.io.*;
-import java.util.*;
-
 /**
  *
  * @author Phan Thao
  */
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 public class MainFrame extends JFrame {
 
     private JTextField usernameField;
@@ -38,17 +36,14 @@ public class MainFrame extends JFrame {
         JPanel loginPanel = new JPanel();
         loginPanel.setLayout(new GridLayout(6, 1, 10, 10));
 
-        // Username field
         loginPanel.add(new JLabel("Username:"));
         usernameField = new JTextField();
         loginPanel.add(usernameField);
 
-        // Password field
         loginPanel.add(new JLabel("Password:"));
         passwordField = new JPasswordField();
         loginPanel.add(passwordField);
 
-        // Radio buttons for role selection
         studentRadioButton = new JRadioButton("Student", true);
         managerRadioButton = new JRadioButton("Manager");
         roleGroup = new ButtonGroup();
@@ -59,7 +54,6 @@ public class MainFrame extends JFrame {
         rolePanel.add(managerRadioButton);
         loginPanel.add(rolePanel);
 
-        // Login button
         loginButton = new JButton("Login");
         loginButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -68,7 +62,6 @@ public class MainFrame extends JFrame {
         });
         loginPanel.add(loginButton);
 
-        // Create account button
         createAccountButton = new JButton("Create Account");
         createAccountButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -90,9 +83,8 @@ public class MainFrame extends JFrame {
             if (account.isManager() == isManager) {
                 JOptionPane.showMessageDialog(this, "Login successful!");
                 if (isManager) {
-                    // Open manager view
+                    openManagerView();
                 } else {
-                    // Open student view
                     openStudentView();
                 }
             } else {
@@ -106,6 +98,12 @@ public class MainFrame extends JFrame {
     private void openStudentView() {
         EventQueue.invokeLater(() -> {
             new StudentView().setVisible(true);
+        });
+    }
+
+    private void openManagerView() {
+        EventQueue.invokeLater(() -> {
+            new ManagerView().setVisible(true);
         });
     }
 
