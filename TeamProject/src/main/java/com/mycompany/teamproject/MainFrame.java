@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.teamproject;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -14,7 +15,8 @@ import java.util.*;
  *
  * @author Phan Thao
  */
-public class MainFrame extends JFrame{
+public class MainFrame extends JFrame {
+
     private JTextField usernameField;
     private JPasswordField passwordField;
     private JButton loginButton;
@@ -22,8 +24,6 @@ public class MainFrame extends JFrame{
     private JRadioButton studentRadioButton;
     private JRadioButton managerRadioButton;
     private ButtonGroup roleGroup;
-
-    
 
     public MainFrame() {
         setTitle("IELTS Reading Practice App");
