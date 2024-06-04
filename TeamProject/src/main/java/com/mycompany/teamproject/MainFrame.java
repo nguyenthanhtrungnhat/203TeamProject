@@ -136,6 +136,7 @@ public class MainFrame extends JFrame{
             new ExerciseFrame(exercise).setVisible(true);
         }
     }
+    
 
     class ManagerView extends JFrame {
         private IELTS_Exercises exercises;
