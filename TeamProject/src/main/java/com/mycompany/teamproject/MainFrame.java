@@ -6,8 +6,8 @@ package com.mycompany.teamproject;
 
 /**
  *
- * @author Dell
+ * @author Phan Thao
  */
-public class Student {
+public class MainFrame {
     
 }
