@@ -10,6 +10,7 @@ import java.util.*;
  *
  * @author Dell
  */
+
 public class Account {
     private String username;
     private String password;
@@ -79,6 +80,47 @@ public class Account {
         } else {
             System.out.println("Account already exists.");
             return false;
+        }
+    }
+
+    // Retrieve all accounts from the file
+    public static List<Account> getAllAccounts() {
+        List<Account> accounts = new ArrayList<>();
+        try (Scanner scanner = new Scanner(new File("accounts.txt"))) {
+            while (scanner.hasNextLine()) {
+                String line = scanner.nextLine();
+                String[] details = line.split(",");
+                accounts.add(new Account(details[0], details[1], Boolean.parseBoolean(details[2])));
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("Accounts file not found: " + e.getMessage());
+        }
+        return accounts;
+    }
+
+    // Delete an account with the given username
+    public static boolean deleteAccount(String username) {
+        List<Account> accounts = getAllAccounts();
+        Iterator<Account> iterator = accounts.iterator();
+        while (iterator.hasNext()) {
+            Account account = iterator.next();
+            if (account.getUsername().equals(username)) {
+                iterator.remove();
+                saveAccountsToFile(accounts);
+                return true;
+            }
+        }
+        return false; // return false if the account was not found
+    }
+
+    // Save accounts to the file
+    private static void saveAccountsToFile(List<Account> accounts) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("accounts.txt"))) {
+            for (Account account : accounts) {
+                bw.write(account.getUsername() + "," + account.getPassword() + "," + account.isManager() + "\n");
+            }
+        } catch (IOException e) {
+            System.out.println("Error writing to file: " + e.getMessage());
         }
     }
 }
