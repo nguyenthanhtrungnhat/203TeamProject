@@ -4,8 +4,6 @@
  */
 package com.mycompany.teamproject;
 
-import java.io.*;
-import java.util.*;
 /**
  *
  * @author Dell
@@ -18,7 +16,7 @@ public class IELTS_Exercises {
 
     public IELTS_Exercises() {
         this.exercises = new ArrayList<>();
-        loadExercisesFromFile();
+        loadExercisesFromFile();    
     }
 
     // Load exercises from a file
@@ -28,7 +26,7 @@ public class IELTS_Exercises {
             while (scanner.hasNextLine() && answerScanner.hasNextLine()) {
                 String exerciseData = scanner.nextLine();
                 String answerData = answerScanner.nextLine();
-                exercises.add(new Exercise(exerciseData, answerData.split(","))); // Create Exercise with answers
+                exercises.add(new Exercise(exerciseData.trim(), answerData.split("\\s*,\\s*"))); // Create Exercise with answers
             }
         } catch (FileNotFoundException e) {
             System.out.println("Exercises or answers file not found: " + e.getMessage());
