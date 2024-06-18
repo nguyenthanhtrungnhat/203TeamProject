@@ -1,13 +1,13 @@
-1
-1
-1
-1
-True
-True
-True
-1
-1
-1
-1
-1
-1
+C
+B
+E
+G
+D
+human error
+car-sharing
+ownership
+mileage
+C
+D
+A
+E

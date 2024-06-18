@@ -1,13 +1,14 @@
-1
-1
-1
-1
-True
-True
-True
-1
-1
-1
-1
-1
-1
+A
+C
+C
+D
+A
+B
+E
+A
+D
+E
+B
+unique expeditions
+uncontacted
+land surface

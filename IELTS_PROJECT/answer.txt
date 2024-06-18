@@ -1,13 +1,13 @@
-1
-1
-1
-1
+oval
+husk
+seed
+mace
+False
+Not Given
 True
-True
-True
-1
-1
-1
-1
-1
-1
+Arabs
+plague
+lime
+Run
+Mauritius
+tsunami
