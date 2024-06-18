@@ -51,7 +51,7 @@ public class MainFrame extends javax.swing.JFrame {
         setTitle("LOGIN");
         setPreferredSize(new java.awt.Dimension(800, 500));
 
-        jPanel1.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel1.setBackground(new java.awt.Color(255, 137, 137));
         jPanel1.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -97,6 +97,8 @@ public class MainFrame extends javax.swing.JFrame {
         });
         jPanel1.add(btnSignup);
         btnSignup.setBounds(680, 190, 72, 23);
+
+        jPanel2.setBackground(new java.awt.Color(255, 102, 102));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
