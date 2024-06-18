@@ -33,7 +33,7 @@ public class Exam2 extends javax.swing.JDialog {
         lblBody.setLineWrap(true); // Set line wrap to true
         lblBody.setWrapStyleWord(true); // Wrap on word boundaries
 
-        loadTextFromFile("example.txt");
+        loadTextFromFile("example2.txt");
     }
 
     private void loadTextFromFile(String filePath) {
@@ -52,7 +52,7 @@ public class Exam2 extends javax.swing.JDialog {
     }
 
     private void compareTextToFile() {
-        String fileContent = readTextFromFile("answer.txt");
+        String fileContent = readTextFromFile("answer2.txt");
         String[] answers = fileContent.split("\n");
 
         int totalPoints = 0;
@@ -70,13 +70,13 @@ public class Exam2 extends javax.swing.JDialog {
         if (answers[3].equals(txtQ4.getText().trim())) {
             totalPoints += pointsPerAnswer;
         }
-        if (answers[4].equals(cbb1.getSelectedItem())) {
+        if (answers[4].equals(txtQ5.getText().trim())) {
             totalPoints += pointsPerAnswer;
         }
-        if (answers[5].equals(cbb1.getSelectedItem())) {
+        if (answers[5].equals(txtQ6.getText().trim())) {
             totalPoints += pointsPerAnswer;
         }
-        if (answers[6].equals(cbb1.getSelectedItem())) {
+        if (answers[6].equals(txtQ7.getText().trim())) {
             totalPoints += pointsPerAnswer;
         }
         if (answers[7].equals(txtQ8.getText().trim())) {
@@ -165,13 +165,10 @@ public class Exam2 extends javax.swing.JDialog {
         txtQ2 = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         txtQ3 = new javax.swing.JTextField();
-        cbb1 = new javax.swing.JComboBox<>();
         txtQ4 = new javax.swing.JTextField();
-        cbb2 = new javax.swing.JComboBox<>();
         txtQ8 = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         txtQ9 = new javax.swing.JTextField();
-        cbb3 = new javax.swing.JComboBox<>();
         txtQ10 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -180,10 +177,13 @@ public class Exam2 extends javax.swing.JDialog {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
+        txtQ5 = new javax.swing.JTextField();
+        txtQ6 = new javax.swing.JTextField();
+        txtQ7 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jLabel13.setText("Question 13");
+        jLabel13.setText("Question 26");
 
         btnSubmit.setText("submit");
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {
@@ -249,39 +249,33 @@ public class Exam2 extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel1.setText("Question 1");
+        jLabel1.setText("Question 14");
 
-        jLabel2.setText("Question 2");
+        jLabel2.setText("Question 15");
 
-        jLabel3.setText("Question 3");
+        jLabel3.setText("Question 16");
 
-        jLabel4.setText("Question 4");
+        jLabel4.setText("Question 17");
 
-        jLabel5.setText("Question 5");
+        jLabel5.setText("Question 18");
 
-        jLabel6.setText("Question 6");
+        jLabel6.setText("Question 19");
 
-        cbb1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "True", "False", "Not Given" }));
+        jLabel7.setText("Question 20");
 
-        cbb2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "True", "False", "Not Given" }));
-
-        jLabel7.setText("Question 7");
-
-        cbb3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "True", "False", "Not Given" }));
-
-        jLabel8.setText("Question 8");
+        jLabel8.setText("Question 21");
 
         lblBody.setColumns(20);
         lblBody.setRows(5);
         jScrollPane1.setViewportView(lblBody);
 
-        jLabel9.setText("Question 9");
+        jLabel9.setText("Question 22");
 
-        jLabel10.setText("Question 10");
+        jLabel10.setText("Question 23");
 
-        jLabel11.setText("Question 11");
+        jLabel11.setText("Question 24");
 
-        jLabel12.setText("Question 12");
+        jLabel12.setText("Question 25");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -332,13 +326,13 @@ public class Exam2 extends javax.swing.JDialog {
                                         .addComponent(jLabel4))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(cbb1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(cbb2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(cbb3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(txtQ8, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(txtQ9, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addComponent(txtQ3, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(txtQ4, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addComponent(txtQ4, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtQ5, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtQ6, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtQ7, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(17, 17, 17)))
@@ -370,15 +364,15 @@ public class Exam2 extends javax.swing.JDialog {
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
-                            .addComponent(cbb1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtQ5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel6)
-                            .addComponent(cbb2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtQ6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel7)
-                            .addComponent(cbb3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(txtQ7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel8)
@@ -441,9 +435,9 @@ public class Exam2 extends javax.swing.JDialog {
             txtQ2.setText(answers[1]);
             txtQ3.setText(answers[2]);
             txtQ4.setText(answers[3]);
-            cbb1.setSelectedItem(answers[4]);
-            cbb2.setSelectedItem(answers[5]);
-            cbb3.setSelectedItem(answers[6]);
+            txtQ5.setText(answers[4]);
+            txtQ6.setText(answers[5]);
+            txtQ7.setText(answers[6]);
             txtQ8.setText(answers[7]);
             txtQ9.setText(answers[8]);
             txtQ10.setText(answers[9]);
@@ -462,6 +456,9 @@ public class Exam2 extends javax.swing.JDialog {
         txtQ2.setText(null);
         txtQ3.setText(null);
         txtQ4.setText(null);
+        txtQ5.setText(null);
+        txtQ6.setText(null);
+        txtQ7.setText(null);
         txtQ8.setText(null);
         txtQ9.setText(null);
         txtQ10.setText(null);
@@ -517,9 +514,6 @@ public class Exam2 extends javax.swing.JDialog {
     private javax.swing.JButton btnShow;
     private javax.swing.JButton btnStart;
     private javax.swing.JButton btnSubmit;
-    private javax.swing.JComboBox<String> cbb1;
-    private javax.swing.JComboBox<String> cbb2;
-    private javax.swing.JComboBox<String> cbb3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -546,6 +540,9 @@ public class Exam2 extends javax.swing.JDialog {
     private javax.swing.JTextField txtQ2;
     private javax.swing.JTextField txtQ3;
     private javax.swing.JTextField txtQ4;
+    private javax.swing.JTextField txtQ5;
+    private javax.swing.JTextField txtQ6;
+    private javax.swing.JTextField txtQ7;
     private javax.swing.JTextField txtQ8;
     private javax.swing.JTextField txtQ9;
     // End of variables declaration//GEN-END:variables
