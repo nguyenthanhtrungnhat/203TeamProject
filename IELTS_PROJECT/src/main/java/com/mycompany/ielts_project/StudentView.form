@@ -23,18 +23,13 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="124" max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
-                      <Component id="myCombobox" min="-2" max="-2" attributes="0"/>
-                  </Group>
+                  <Component id="btnStart" min="-2" max="-2" attributes="0"/>
+                  <Component id="myCombobox" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="201" max="32767" attributes="0"/>
+              <EmptySpace pref="258" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -43,18 +38,21 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
               <Component id="myCombobox" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="143" max="32767" attributes="0"/>
-              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="btnStart" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="176" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="btnStart">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jButton1"/>
+        <Property name="text" type="java.lang.String" value="Start"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnStartActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JComboBox" name="myCombobox">
       <Properties>
