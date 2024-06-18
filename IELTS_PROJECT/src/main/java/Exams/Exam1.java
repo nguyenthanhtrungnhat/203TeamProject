@@ -33,7 +33,7 @@ public class Exam1 extends javax.swing.JDialog {
         lblBody.setLineWrap(true); // Set line wrap to true
         lblBody.setWrapStyleWord(true); // Wrap on word boundaries
 
-        loadTextFromFile("example1.txt");
+        loadTextFromFile("example.txt");
     }
 
     private void loadTextFromFile(String filePath) {
@@ -52,7 +52,7 @@ public class Exam1 extends javax.swing.JDialog {
     }
 
     private void compareTextToFile() {
-        String fileContent = readTextFromFile("answer1.txt");
+        String fileContent = readTextFromFile("answer.txt");
         String[] answers = fileContent.split("\n");
 
         int totalPoints = 0;
@@ -393,7 +393,7 @@ public class Exam1 extends javax.swing.JDialog {
 
     private void btnShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowActionPerformed
         // Read answers from the file
-        String fileContent = readTextFromFile("answer1.txt");
+        String fileContent = readTextFromFile("answer.txt");
         String[] answers = fileContent.split("\n");
 
         if (!txtQ1.getText().isEmpty() && !txtQ2.getText().isEmpty() && !txtQ3.getText().isEmpty()
