@@ -5,6 +5,9 @@
 package com.mycompany.ielts_project;
 
 import Exams.Exam1;
+import Exams.Exam2;
+import Exams.Exam3;
+import Exams.Exam4;
 
 /**
  *
@@ -72,7 +75,22 @@ public class StudentView extends javax.swing.JDialog {
         if (myCombobox.getSelectedItem().equals("Exam1")) {
             Exams.Exam1 e1 = new Exam1(null, true);
             e1.setVisible(true);
-        
+
+        }
+        if (myCombobox.getSelectedItem().equals("Exam2")) {
+            Exams.Exam2 e2 = new Exam2(null, true);
+            e2.setVisible(true);
+
+        }
+        if (myCombobox.getSelectedItem().equals("Exam3")) {
+            Exams.Exam3 e3 = new Exam3(null, true);
+            e3.setVisible(true);
+
+        }
+        if (myCombobox.getSelectedItem().equals("Exam4")) {
+            Exams.Exam4 e4 = new Exam4(null, true);
+            e4.setVisible(true);
+
         }
     }//GEN-LAST:event_btnStartActionPerformed
 
