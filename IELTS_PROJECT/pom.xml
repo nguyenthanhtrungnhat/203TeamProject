@@ -11,4 +11,11 @@
         <maven.compiler.target>20</maven.compiler.target>
         <exec.mainClass>com.mycompany.ielts_project.IELTS_PROJECT</exec.mainClass>
     </properties>
+    <dependencies>
+    <dependency>
+        <groupId>com.miglayout</groupId>
+        <artifactId>miglayout</artifactId>
+        <version>4.2</version>
+    </dependency>
+</dependencies>
 </project>
