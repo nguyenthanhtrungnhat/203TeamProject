@@ -247,35 +247,35 @@ public class Exam3 extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel1.setText("Question 14");
+        jLabel1.setText("Question 27");
 
-        jLabel2.setText("Question 15");
+        jLabel2.setText("Question 28");
 
-        jLabel7.setText("Question 20");
+        jLabel7.setText("Question 33");
 
-        jLabel8.setText("Question 21");
+        jLabel8.setText("Question 34");
 
         lblBody.setColumns(20);
         lblBody.setRows(5);
         jScrollPane1.setViewportView(lblBody);
 
-        jLabel9.setText("Question 22");
+        jLabel9.setText("Question 35");
 
-        jLabel10.setText("Question 23");
+        jLabel10.setText("Question 36");
 
-        jLabel11.setText("Question 24");
+        jLabel11.setText("Question 37");
 
-        jLabel13.setText("Question 26");
+        jLabel13.setText("Question 39");
 
-        jLabel3.setText("Question 16");
+        jLabel3.setText("Question 29");
 
-        jLabel12.setText("Question 25");
+        jLabel12.setText("Question 37");
 
-        jLabel4.setText("Question 17");
+        jLabel4.setText("Question 30");
 
-        jLabel5.setText("Question 18");
+        jLabel5.setText("Question 31");
 
-        jLabel6.setText("Question 19");
+        jLabel6.setText("Question 32");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);

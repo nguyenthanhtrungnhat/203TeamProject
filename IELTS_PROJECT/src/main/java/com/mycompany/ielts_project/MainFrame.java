@@ -204,8 +204,6 @@ public class MainFrame extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Successful!");
                 ManagerView managerView = new ManagerView(this, true);
                 managerView.setVisible(true);
-                // Optionally close the login window
-                this.dispose();
             } else {
                 JOptionPane.showMessageDialog(null, "Invalid username or password, try again!");
             }
