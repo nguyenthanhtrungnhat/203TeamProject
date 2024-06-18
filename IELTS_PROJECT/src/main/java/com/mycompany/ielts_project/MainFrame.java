@@ -4,7 +4,7 @@
  */
 package com.mycompany.ielts_project;
 
-import Component.PanelCover;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
