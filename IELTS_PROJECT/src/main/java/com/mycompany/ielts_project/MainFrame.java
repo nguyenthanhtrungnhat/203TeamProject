@@ -29,12 +29,12 @@ public class MainFrame extends javax.swing.JFrame {
         //init();
         
     }
-    private void init(){
+    //private void init(){
         //layout = new MigLayout("fill, debug");
         //cover = new PanelCover();
         //bg.setLayout(layout);
         //bg.add(cover, "width " + coverSize + "%, pos 0al 0 n 100%");
-    }
+    //}
 
     /**
      * This method is called from within the constructor to initialize the form.
