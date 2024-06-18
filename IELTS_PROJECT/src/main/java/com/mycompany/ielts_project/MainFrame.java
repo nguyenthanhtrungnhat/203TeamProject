@@ -51,14 +51,14 @@ public class MainFrame extends javax.swing.JFrame {
         setTitle("LOGIN");
         setPreferredSize(new java.awt.Dimension(800, 500));
 
-        jPanel1.setBackground(new java.awt.Color(255, 137, 137));
+        jPanel1.setBackground(new java.awt.Color(255, 234, 221));
         jPanel1.setLayout(null);
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(102, 102, 102));
         jLabel1.setText("User");
         jPanel1.add(jLabel1);
-        jLabel1.setBounds(410, 80, 58, 20);
+        jLabel1.setBounds(430, 70, 58, 20);
 
         txtUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -66,19 +66,19 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(txtUser);
-        txtUser.setBounds(530, 70, 223, 22);
+        txtUser.setBounds(550, 70, 223, 22);
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setText("PassWord");
         jPanel1.add(jLabel2);
-        jLabel2.setBounds(410, 120, 95, 20);
+        jLabel2.setBounds(430, 120, 95, 20);
         jPanel1.add(txtPasswd);
-        txtPasswd.setBounds(530, 120, 223, 22);
+        txtPasswd.setBounds(550, 120, 223, 22);
 
         myCombobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Student", "Manager" }));
         jPanel1.add(myCombobox);
-        myCombobox.setBounds(410, 190, 109, 22);
+        myCombobox.setBounds(430, 190, 109, 22);
 
         btnLogin.setText("Login");
         btnLogin.addActionListener(new java.awt.event.ActionListener() {
@@ -87,7 +87,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnLogin);
-        btnLogin.setBounds(570, 190, 72, 23);
+        btnLogin.setBounds(550, 190, 100, 23);
 
         btnSignup.setText("Signup");
         btnSignup.addActionListener(new java.awt.event.ActionListener() {
@@ -96,9 +96,9 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
         jPanel1.add(btnSignup);
-        btnSignup.setBounds(680, 190, 72, 23);
+        btnSignup.setBounds(670, 190, 100, 23);
 
-        jPanel2.setBackground(new java.awt.Color(255, 102, 102));
+        jPanel2.setBackground(new java.awt.Color(255, 137, 137));
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
