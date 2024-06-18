@@ -12,14 +12,14 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
+import javax.swing.JOptionPane; 
 
 
 
 public class MainFrame extends javax.swing.JFrame {
 
     private PanelCover cover;
-    private Mig
+   // private MigLayout
     
     public MainFrame() {
         initComponents();
