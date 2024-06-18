@@ -13,16 +13,27 @@ import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane; 
+//import net.miginfocom.swing.MigLayout;
 
 
 
 public class MainFrame extends javax.swing.JFrame {
 
-    private PanelCover cover;
-   // private MigLayout
+   // private PanelCover cover;
+    //private MigLayout migLayout;
+    //private final double addSize = 30;
+    //private final double coverSize = 40;
     
     public MainFrame() {
         initComponents();
+        //init();
+        
+    }
+    private void init(){
+        //layout = new MigLayout("fill, debug");
+        //cover = new PanelCover();
+        //bg.setLayout(layout);
+        //bg.add(cover, "width " + coverSize + "%, pos 0al 0 n 100%");
     }
 
     /**
