@@ -76,17 +76,17 @@ public class StudentView extends javax.swing.JDialog {
             e1.setVisible(true);
 
         }
-         if (myCombobox.getSelectedItem().equals("Exam2")) {
+        if (myCombobox.getSelectedItem().equals("Exam2")) {
             Exams.Exam2 e1 = new Exam2(null, true);
             e1.setVisible(true);
 
         }
-          if (myCombobox.getSelectedItem().equals("Exam3")) {
+        if (myCombobox.getSelectedItem().equals("Exam3")) {
             Exams.Exam3 e1 = new Exam3(null, true);
             e1.setVisible(true);
 
         }
-         
+
     }//GEN-LAST:event_btnStartActionPerformed
 
     /**
