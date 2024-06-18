@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
 package Exams;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
@@ -13,24 +14,29 @@ import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.Timer;
 import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Dell
  */
 public class Exam2 extends javax.swing.JDialog {
- private Timer timer;
+
+    private Timer timer;
+
     /**
      * Creates new form Exam2
      */
     public Exam2(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
-        initComponents(); lblBody.setEditable(false);
+        initComponents();
+        lblBody.setEditable(false);
         lblBody.setLineWrap(true); // Set line wrap to true
         lblBody.setWrapStyleWord(true); // Wrap on word boundaries
 
         loadTextFromFile("example.txt");
     }
- private void loadTextFromFile(String filePath) {
+
+    private void loadTextFromFile(String filePath) {
         StringBuilder content = new StringBuilder();
         try (BufferedReader br = new BufferedReader(new FileReader(filePath))) {
             String line;
@@ -411,9 +417,9 @@ public class Exam2 extends javax.swing.JDialog {
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         // TODO add your handling code here:
         if (!txtQ1.getText().isEmpty() && !txtQ2.getText().isEmpty() && !txtQ3.getText().isEmpty()
-            && !txtQ4.getText().isEmpty() && !txtQ8.getText().isEmpty() && !txtQ9.getText().isEmpty()
-            && !txtQ10.getText().isEmpty() && !txtQ11.getText().isEmpty() && !txtQ12.getText().isEmpty()
-            && !txtQ13.getText().isEmpty()) {
+                && !txtQ4.getText().isEmpty() && !txtQ8.getText().isEmpty() && !txtQ9.getText().isEmpty()
+                && !txtQ10.getText().isEmpty() && !txtQ11.getText().isEmpty() && !txtQ12.getText().isEmpty()
+                && !txtQ13.getText().isEmpty()) {
             timer.stop();
             compareTextToFile();
         } else {
@@ -427,9 +433,9 @@ public class Exam2 extends javax.swing.JDialog {
         String[] answers = fileContent.split("\n");
 
         if (!txtQ1.getText().isEmpty() && !txtQ2.getText().isEmpty() && !txtQ3.getText().isEmpty()
-            && !txtQ4.getText().isEmpty() && !txtQ8.getText().isEmpty() && !txtQ9.getText().isEmpty()
-            && !txtQ10.getText().isEmpty() && !txtQ11.getText().isEmpty() && !txtQ12.getText().isEmpty()
-            && !txtQ13.getText().isEmpty()) {
+                && !txtQ4.getText().isEmpty() && !txtQ8.getText().isEmpty() && !txtQ9.getText().isEmpty()
+                && !txtQ10.getText().isEmpty() && !txtQ11.getText().isEmpty() && !txtQ12.getText().isEmpty()
+                && !txtQ13.getText().isEmpty()) {
             // Show answers in the text fields and combo boxes
             txtQ1.setText(answers[0]);
             txtQ2.setText(answers[1]);

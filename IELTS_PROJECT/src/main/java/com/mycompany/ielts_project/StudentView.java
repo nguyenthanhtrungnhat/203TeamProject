@@ -5,6 +5,9 @@
 package com.mycompany.ielts_project;
 
 import Exams.Exam1;
+import Exams.Exam2;
+import Exams.Exam3;
+import Exams.Exam4;
 
 /**
  *
@@ -72,7 +75,22 @@ public class StudentView extends javax.swing.JDialog {
         if (myCombobox.getSelectedItem().equals("Exam1")) {
             Exams.Exam1 e1 = new Exam1(null, true);
             e1.setVisible(true);
-        
+
+        }
+         if (myCombobox.getSelectedItem().equals("Exam2")) {
+            Exams.Exam2 e1 = new Exam2(null, true);
+            e1.setVisible(true);
+
+        }
+          if (myCombobox.getSelectedItem().equals("Exam3")) {
+            Exams.Exam3 e1 = new Exam3(null, true);
+            e1.setVisible(true);
+
+        }
+           if (myCombobox.getSelectedItem().equals("Exam4")) {
+            Exams.Exam4 e1 = new Exam4(null, true);
+            e1.setVisible(true);
+
         }
     }//GEN-LAST:event_btnStartActionPerformed
 
@@ -82,7 +100,7 @@ public class StudentView extends javax.swing.JDialog {
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+        /* If Nimbus (introduced in Java SE 6) is not availsable, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
         try {
