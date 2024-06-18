@@ -41,8 +41,8 @@ public class Exam1 extends javax.swing.JDialog {
             e.printStackTrace();
         }
 
-        textArea.setText(content.toString().trim());
-        textArea.setCaretPosition(0); // Set caret position to the beginning
+        lblBody.setText(content.toString().trim());
+        lblBody.setCaretPosition(0); // Set caret position to the beginning
     }
 
     /**
