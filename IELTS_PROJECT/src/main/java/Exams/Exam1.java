@@ -114,6 +114,29 @@ public class Exam1 extends javax.swing.JDialog {
         return content.toString().trim();
     }
 
+    private void countdownTimer() {
+        timer = new Timer(1000, new ActionListener() {
+            int minutes = 20;
+            int seconds = 0;
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                seconds--;
+                if (seconds < 0) {
+                    seconds = 59;
+                    minutes--;
+                }
+                if (minutes < 0) {
+                    ((Timer) e.getSource()).stop();
+                    lblTime.setText("00:00");
+                    return;
+                }
+                lblTime.setText(String.format("%02d:%02d", minutes, seconds));
+            }
+        });
+        timer.start();
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -491,28 +514,6 @@ public class Exam1 extends javax.swing.JDialog {
         });
     }
 
-    private void countdownTimer() {
-        timer = new Timer(1000, new ActionListener() {
-            int minutes = 20;
-            int seconds = 0;
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                seconds--;
-                if (seconds < 0) {
-                    seconds = 59;
-                    minutes--;
-                }
-                if (minutes < 0) {
-                    ((Timer) e.getSource()).stop();
-                    lblTime.setText("00:00");
-                    return;
-                }
-                lblTime.setText(String.format("%02d:%02d", minutes, seconds));
-            }
-        });
-        timer.start();
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnShow;
