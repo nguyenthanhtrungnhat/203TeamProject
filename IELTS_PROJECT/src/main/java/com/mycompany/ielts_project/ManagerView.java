@@ -4,6 +4,10 @@
  */
 package com.mycompany.ielts_project;
 
+import Edit.Edit1;
+import Edit.Edit2;
+import Edit.Edit3;
+
 /**
  *
  * @author Dell
@@ -27,21 +31,68 @@ public class ManagerView extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        myCombobox = new javax.swing.JComboBox<>();
+        btnEdit = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+
+        myCombobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Exam1", "Exam2", "Exam3" }));
+
+        btnEdit.setText("Edit");
+        btnEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setText("Choose Exam to edit content");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(141, 141, 141)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(btnEdit)
+                    .addComponent(myCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(106, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(myCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnEdit)
+                .addContainerGap(170, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditActionPerformed
+        // TODO add your handling code here:
+        if (myCombobox.getSelectedItem().equals("Exam1")) {
+            Edit.Edit1 e1 = new Edit1(null, true);
+            e1.setVisible(true);
+
+        }
+        if (myCombobox.getSelectedItem().equals("Exam2")) {
+             Edit.Edit2 e1 = new Edit2(null, true);
+            e1.setVisible(true);
+
+        }
+        if (myCombobox.getSelectedItem().equals("Exam3")) {
+             Edit.Edit3 e1 = new Edit3(null, true);
+            e1.setVisible(true);
+
+        }
+    }//GEN-LAST:event_btnEditActionPerformed
 
     /**
      * @param args the command line arguments
@@ -86,5 +137,8 @@ public class ManagerView extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEdit;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JComboBox<String> myCombobox;
     // End of variables declaration//GEN-END:variables
 }
