@@ -5,10 +5,15 @@
 package com.mycompany.ielts_project;
 
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -22,9 +27,41 @@ public class SignUpDialog extends javax.swing.JDialog {
     /**
      * Creates new form SignUpDialog
      */
+    private ManageOwner manageOwner;
+
     public SignUpDialog(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.setLocationRelativeTo(null);
+        setDefaultCloseOperation(HIDE_ON_CLOSE);
+
+        this.manageOwner = manageOwner;
+        loadOwners();
+    }
+
+    private void loadOwners() {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("Account.dat"))) {
+            manageOwner.setListOwner((ArrayList<Owner>) ois.readObject());
+        } catch (IOException | ClassNotFoundException e) {
+            JOptionPane.showMessageDialog(this, "Error loading owners from file.");
+        }
+    }
+
+    private void saveOwners() {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Account.dat"))) {
+            oos.writeObject(manageOwner.getListOwner());
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(this, "Error saving customers to file.");
+        }
+    }
+
+    private boolean checkUsername() {
+        for (Owner owner : manageOwner.getListOwner()) {
+            if (owner.getUsername().equals(usernameTF.getText())) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
@@ -56,8 +93,6 @@ public class SignUpDialog extends javax.swing.JDialog {
 
         jPanel5.setBackground(new java.awt.Color(255, 137, 137));
         jPanel5.setPreferredSize(new java.awt.Dimension(400, 500));
-
-        jLabel7.setIcon(new javax.swing.ImageIcon("D:\\CSE203\\203TeamProject\\IELTS_PROJECT\\src\\icon\\logo1.png")); // NOI18N
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -188,48 +223,32 @@ public class SignUpDialog extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignUpActionPerformed
-        String username = txtUser.getText().toString();
-        String password = txtPasswd.getText().toString();
-
-        // Check if the username or password fields are empty
-        if (username.isEmpty() || password.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Please enter username and password!");
+        if (txtUser.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Username can not be empty");
+            txtUser.requestFocus();
+            return;
+        } else if (txtUser.getText().contains(" ")) {
+            JOptionPane.showMessageDialog(this, "Username can not contain space");
+            txtUser.requestFocus();
+            return;
+        } else if (txtPasswd.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Password cannot be empty.");
+            txtPasswd.requestFocus();
             return;
         }
+        String username = txtUser.getText();
+        String password = txtPasswd.getText();
 
-        boolean accountExists = false;
+        Owner owner = new Owner(username, password);
 
-        // Check if the account already exists
-        try (BufferedReader br = new BufferedReader(new FileReader("Account.txt"))) {
-            String line;
-            while ((line = br.readLine()) != null) {
-                // Assume each line in Account.txt has format: username[TAB]password
-                String[] credentials = line.split("\t");
-                if (credentials.length == 2 && credentials[0].equals(username)) {
-                    accountExists = true;
-                    break;
-                }
-            }
-        } catch (FileNotFoundException ex) {
-            // File not found, no accounts exist yet, so we can proceed with signup
-        } catch (IOException ex) {
-            JOptionPane.showMessageDialog(null, "Error reading account file!");
-            Logger.getLogger(SignUpDialog.class.getName()).log(Level.SEVERE, null, ex);
-            return;
-        }
-
-        if (accountExists) {
-            JOptionPane.showMessageDialog(null, "Username already exists. Please try another username!");
+        if (manageOwner.searchUsername(username)) {
+            manageOwner.getListOwner().add(owner);
+            JOptionPane.showMessageDialog(this, "Add new owner successfully.");
+            saveOwners();
+            dispose();
         } else {
-            // Write the new account to the file
-            try (FileWriter fw = new FileWriter("Account.txt", true)) {
-                fw.write(username + "\t" + password + "\n");
-                JOptionPane.showMessageDialog(null, "Sign up completed!");
-                dispose();
-            } catch (IOException ex) {
-                JOptionPane.showMessageDialog(null, "Error writing to account file!");
-                Logger.getLogger(SignUpDialog.class.getName()).log(Level.SEVERE, null, ex);
-            }
+            JOptionPane.showMessageDialog(this, "Username is already exist.");
+            return;
         }
     }//GEN-LAST:event_btnSignUpActionPerformed
 

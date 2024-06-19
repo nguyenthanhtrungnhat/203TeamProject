@@ -9,5 +9,5 @@ package com.mycompany.ielts_project;
  * @author Admin
  */
 public class Student {
-    
+
 }

@@ -13,6 +13,7 @@ Edit\Edit2.class
 Exams\Exam1$4.class
 Edit\Edit2$2.class
 com\mycompany\ielts_project\StudentView$2$1.class
+com\mycompany\ielts_project\Student.class
 com\mycompany\ielts_project\MainFrame$5.class
 com\mycompany\ielts_project\ManagerView$2.class
 com\mycompany\ielts_project\StudentView.class
@@ -49,5 +50,6 @@ Exams\Exam1$5$1.class
 Edit\Edit1$2$1.class
 Edit\Edit3$2.class
 Exams\Exam2$3.class
+com\mycompany\ielts_project\Account.class
 com\mycompany\ielts_project\IELTS_PROJECT.class
 com\mycompany\ielts_project\SignUpDialog$2.class

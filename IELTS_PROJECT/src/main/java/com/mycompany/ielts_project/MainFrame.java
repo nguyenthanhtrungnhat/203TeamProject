@@ -60,8 +60,6 @@ public class MainFrame extends javax.swing.JFrame {
 
         right.setBackground(new java.awt.Color(255, 137, 137));
 
-        jLabel7.setIcon(new javax.swing.ImageIcon("D:\\CSE203\\203TeamProject\\IELTS_PROJECT\\src\\icon\\logo1.png")); // NOI18N
-
         javax.swing.GroupLayout rightLayout = new javax.swing.GroupLayout(right);
         right.setLayout(rightLayout);
         rightLayout.setHorizontalGroup(
@@ -241,7 +239,7 @@ public class MainFrame extends javax.swing.JFrame {
             }
         } else if (selectedRole.equals(ROLE_STUDENT)) {
             // Handle file reading for Student role
-            try (BufferedReader br = new BufferedReader(new FileReader("Account.txt"))) {
+            try (BufferedReader br = new BufferedReader(new FileReader("Account.dat"))) {
                 String line;
                 boolean loginSuccessful = false;
                 while ((line = br.readLine()) != null) {
