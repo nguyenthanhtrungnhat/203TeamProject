@@ -7,6 +7,11 @@ package com.mycompany.ielts_project;
 import Edit.Edit1;
 import Edit.Edit2;
 import Edit.Edit3;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -34,6 +39,8 @@ public class ManagerView extends javax.swing.JDialog {
         myCombobox = new javax.swing.JComboBox<>();
         btnEdit = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        btnShow = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -48,6 +55,20 @@ public class ManagerView extends javax.swing.JDialog {
 
         jLabel1.setText("Choose Exam to edit content");
 
+        btnShow.setText("Show all results");
+        btnShow.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnShowActionPerformed(evt);
+            }
+        });
+
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -55,10 +76,20 @@ public class ManagerView extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addGap(141, 141, 141)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addComponent(btnEdit)
-                    .addComponent(myCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(106, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addComponent(myCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(253, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnEdit)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnShow)
+                        .addGap(117, 117, 117))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnBack)
+                .addGap(334, 334, 334))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -68,8 +99,12 @@ public class ManagerView extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(myCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnEdit)
-                .addContainerGap(170, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnEdit)
+                    .addComponent(btnShow))
+                .addGap(51, 51, 51)
+                .addComponent(btnBack)
+                .addContainerGap(96, Short.MAX_VALUE))
         );
 
         pack();
@@ -83,16 +118,26 @@ public class ManagerView extends javax.swing.JDialog {
 
         }
         if (myCombobox.getSelectedItem().equals("Exam2")) {
-             Edit.Edit2 e1 = new Edit2(null, true);
+            Edit.Edit2 e1 = new Edit2(null, true);
             e1.setVisible(true);
 
         }
         if (myCombobox.getSelectedItem().equals("Exam3")) {
-             Edit.Edit3 e1 = new Edit3(null, true);
+            Edit.Edit3 e1 = new Edit3(null, true);
             e1.setVisible(true);
 
         }
     }//GEN-LAST:event_btnEditActionPerformed
+
+    private void btnShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowActionPerformed
+        // TODO add your handling code here:
+        ShowResult s = new ShowResult(null, true);
+        s.setVisible(true);
+    }//GEN-LAST:event_btnShowActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnBackActionPerformed
 
     /**
      * @param args the command line arguments
@@ -137,7 +182,9 @@ public class ManagerView extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnEdit;
+    private javax.swing.JButton btnShow;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JComboBox<String> myCombobox;
     // End of variables declaration//GEN-END:variables

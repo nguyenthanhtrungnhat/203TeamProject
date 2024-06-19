@@ -4,12 +4,17 @@
  */
 package Exams;
 
+import com.mycompany.ielts_project.ListStudent;
 import com.mycompany.ielts_project.Student;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileOutputStream;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -23,6 +28,7 @@ import javax.swing.table.DefaultTableModel;
 public class Exam1 extends javax.swing.JDialog {
 
     private Timer timer;
+    private ListStudent listStudent = new ListStudent();
 
     /**
      * Creates new form Exam1
@@ -170,6 +176,7 @@ public class Exam1 extends javax.swing.JDialog {
         btnShow = new javax.swing.JButton();
         lblTime = new javax.swing.JLabel();
         btnStart = new javax.swing.JButton();
+        btnExit = new javax.swing.JButton();
         txtQ13 = new javax.swing.JTextField();
         txtQ12 = new javax.swing.JTextField();
         txtQ11 = new javax.swing.JTextField();
@@ -182,7 +189,6 @@ public class Exam1 extends javax.swing.JDialog {
         txtQ10 = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         lblBody = new javax.swing.JTextArea();
-        jPanel2 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         txtName = new javax.swing.JTextField();
         txtAge = new javax.swing.JTextField();
@@ -254,6 +260,13 @@ public class Exam1 extends javax.swing.JDialog {
             }
         });
 
+        btnExit.setText("Exit Exam");
+        btnExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnExitActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -271,7 +284,10 @@ public class Exam1 extends javax.swing.JDialog {
                         .addComponent(lblResult))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(63, 63, 63)
-                        .addComponent(lblTime)))
+                        .addComponent(lblTime))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(84, 84, 84)
+                        .addComponent(btnExit)))
                 .addContainerGap(56, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -286,23 +302,14 @@ public class Exam1 extends javax.swing.JDialog {
                 .addComponent(lblResult)
                 .addGap(18, 18, 18)
                 .addComponent(btnShow, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(87, Short.MAX_VALUE))
+                .addGap(29, 29, 29)
+                .addComponent(btnExit)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         lblBody.setColumns(20);
         lblBody.setRows(5);
         jScrollPane1.setViewportView(lblBody);
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
 
         jLabel14.setText("Name");
 
@@ -318,21 +325,21 @@ public class Exam1 extends javax.swing.JDialog {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtExamType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtExamType))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel14)
                             .addComponent(jLabel15))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel17))))
-                .addContainerGap(98, Short.MAX_VALUE))
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel17)
+                            .addComponent(txtName, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE)
+                            .addComponent(txtAge))))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -410,9 +417,7 @@ public class Exam1 extends javax.swing.JDialog {
                         .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 573, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 573, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
@@ -421,9 +426,7 @@ public class Exam1 extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
@@ -492,7 +495,7 @@ public class Exam1 extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+boolean startPressed = false;
     private void btnShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowActionPerformed
         // Read answers from the file
         String fileContent = readTextFromFile("answer.txt");
@@ -524,34 +527,52 @@ public class Exam1 extends javax.swing.JDialog {
     }//GEN-LAST:event_btnShowActionPerformed
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
-        // Check if required fields are filled
-        if (!txtName.getText().isEmpty() && !txtAge.getText().isEmpty() && !txtExamType.getText().isEmpty()) {
-            // Stop the timer if running
-            if (timer != null && timer.isRunning()) {
-                timer.stop();
-            }
-            // Perform your submission logic (e.g., compareTextToFile())
-            compareTextToFile();
-            String name = txtName.getText().toString();
-            String age = txtAge.getText().toString();
-            String examType = txtExamType.getText().toString();
-            String score = lblResult.getText().toString();
-            Student student = new Student(name, age, examType, score);
+        if (startPressed == false) {
+            JOptionPane.showMessageDialog(null, "You must submit first!");
         } else {
-            // Show error message
-            JOptionPane.showMessageDialog(this, "All required fields must be filled out.", "Error", JOptionPane.ERROR_MESSAGE);
+            // Check if required fields are filled
+            if (!txtName.getText().isEmpty() && !txtAge.getText().isEmpty() && !txtExamType.getText().isEmpty()) {
+                // Stop the timer if running
+                if (timer != null && timer.isRunning()) {
+                    timer.stop();
+                }
+                // Perform your submission logic (e.g., compareTextToFile())
+                compareTextToFile();
+                String name = txtName.getText().toString();
+                String age = txtAge.getText().toString();
+                String examType = txtExamType.getText().toString();
+                String score = lblResult.getText().toString();
+                Student student = new Student(name, age, examType, score);
+                listStudent.Add(student);
+                saveList();
 
-            // Focus on the first empty field
-            if (txtName.getText().isEmpty()) {
-                txtName.requestFocusInWindow();
-            } else if (txtAge.getText().isEmpty()) {
-                txtAge.requestFocusInWindow();
-            } else if (txtExamType.getText().isEmpty()) {
-                txtExamType.requestFocusInWindow();
+            } else {
+                // Show error message
+                JOptionPane.showMessageDialog(this, "All required fields must be filled out.", "Error", JOptionPane.ERROR_MESSAGE);
+
+                // Focus on the first empty field
+                if (txtName.getText().isEmpty()) {
+                    txtName.requestFocusInWindow();
+                } else if (txtAge.getText().isEmpty()) {
+                    txtAge.requestFocusInWindow();
+                } else if (txtExamType.getText().isEmpty()) {
+                    txtExamType.requestFocusInWindow();
+                }
             }
         }
     }//GEN-LAST:event_btnSubmitActionPerformed
-
+    private void saveList() {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("ListStudent.txt"))) {
+            for (Student student : listStudent.getList()) {
+                writer.write(student.getName() + "," + student.getAge() + "," + student.getExamType() + "," + student.getScore());
+                writer.newLine();
+            }
+            JOptionPane.showMessageDialog(this, "Student list saved successfully to ListStudent.txt");
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(this, "Error saving student list to file: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace(); // For debugging purposes
+        }
+    }
     private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
         // TODO add your handling code here:
         txtQ1.setText(null);
@@ -565,8 +586,12 @@ public class Exam1 extends javax.swing.JDialog {
         txtQ12.setText(null);
         txtQ13.setText(null);
         countdownTimer();
-
+        startPressed = true;
     }//GEN-LAST:event_btnStartActionPerformed
+
+    private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnExitActionPerformed
 
     /**
      * @param args the command line arguments
@@ -612,6 +637,7 @@ public class Exam1 extends javax.swing.JDialog {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnExit;
     private javax.swing.JButton btnShow;
     private javax.swing.JButton btnStart;
     private javax.swing.JButton btnSubmit;
@@ -636,7 +662,6 @@ public class Exam1 extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea lblBody;
