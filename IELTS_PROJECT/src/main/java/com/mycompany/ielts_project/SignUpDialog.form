@@ -133,16 +133,21 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="txtUser" min="-2" pref="162" max="-2" attributes="0"/>
-                                  <Component id="txtPasswd" alignment="0" min="-2" pref="162" max="-2" attributes="0"/>
                                   <Component id="jLabel2" alignment="0" min="-2" pref="104" max="-2" attributes="0"/>
                                   <Component id="jLabel1" alignment="0" min="-2" pref="97" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="143" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="201" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Component id="btnSignUp" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="159" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="txtPasswd" alignment="0" pref="219" max="32767" attributes="0"/>
+                                  <Component id="txtUser" alignment="0" max="32767" attributes="0"/>
+                              </Group>
+                              <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -229,7 +234,7 @@
                   <Color blue="66" green="66" red="66" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="LOGIN"/>
+                <Property name="text" type="java.lang.String" value="SIGNUP"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel4">
