@@ -34,30 +34,34 @@ public class SignUpDialog extends javax.swing.JDialog {
         initComponents();
         this.setLocationRelativeTo(null);
         setDefaultCloseOperation(HIDE_ON_CLOSE);
-
-        this.manageOwner = manageOwner;
+        // Initialize manageOwner and load existing owners
+        manageOwner = new ManageOwner();
         loadOwners();
     }
 
     private void loadOwners() {
-        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("Account.dat"))) {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("Account.Dat"))) {
             manageOwner.setListOwner((ArrayList<Owner>) ois.readObject());
+        } catch (FileNotFoundException e) {
+            // File does not exist, this might be normal on first run
+            manageOwner.setListOwner(new ArrayList<>());
         } catch (IOException | ClassNotFoundException e) {
-            JOptionPane.showMessageDialog(this, "Error loading owners from file.");
+            JOptionPane.showMessageDialog(this, "Error loading owners from file: " + e.getMessage());
+            manageOwner.setListOwner(new ArrayList<>()); // Reset list on error
         }
     }
 
     private void saveOwners() {
-        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Account.dat"))) {
+        try (ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("Account.Dat"))) {
             oos.writeObject(manageOwner.getListOwner());
         } catch (IOException e) {
-            JOptionPane.showMessageDialog(this, "Error saving customers to file.");
+            JOptionPane.showMessageDialog(this, "Error saving owners to file: " + e.getMessage());
         }
     }
 
     private boolean checkUsername() {
         for (Owner owner : manageOwner.getListOwner()) {
-            if (owner.getUsername().equals(usernameTF.getText())) {
+            if (owner.getUsername().equals(txtUser.getText())) {
                 return true;
             }
         }

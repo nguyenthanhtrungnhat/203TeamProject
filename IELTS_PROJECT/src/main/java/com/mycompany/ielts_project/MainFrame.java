@@ -4,29 +4,44 @@
  */
 package com.mycompany.ielts_project;
 
-
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane; 
+import javax.swing.JOptionPane;
 //import net.miginfocom.swing.MigLayout;
-
-
 
 public class MainFrame extends javax.swing.JFrame {
 
-   
-    
+    private ManageOwner manageOwner = new ManageOwner();
+
     public MainFrame() {
         initComponents();
-        
-        
+        this.setLocationRelativeTo(null);
+        setDefaultCloseOperation(HIDE_ON_CLOSE);
+        // Initialize manageOwner and load existing owners
+        manageOwner = new ManageOwner();
+        loadOwners();
+
     }
-    
+
+    private void loadOwners() {
+        try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("Account.Dat"))) {
+            manageOwner.setListOwner((ArrayList<Owner>) ois.readObject());
+        } catch (FileNotFoundException e) {
+            // File does not exist, this might be normal on first run
+            manageOwner.setListOwner(new ArrayList<>());
+        } catch (IOException | ClassNotFoundException e) {
+            JOptionPane.showMessageDialog(this, "Error loading owners from file: " + e.getMessage());
+            manageOwner.setListOwner(new ArrayList<>()); // Reset list on error
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -215,59 +230,51 @@ public class MainFrame extends javax.swing.JFrame {
         final String ADMIN_PASSWORD = "admin";
         final String ROLE_MANAGER = "Manager";
         final String ROLE_STUDENT = "Student";
-
-        // Retrieve input values
+        String selectedRole = myCombobox.getSelectedItem().toString();
         String username = txtUser.getText();
         char[] passwordArray = txtPasswd.getPassword(); // JPasswordField method
         String password = new String(passwordArray); // Convert char array to String
-        String selectedRole = myCombobox.getSelectedItem().toString();
-
-        // Check if the username and password fields are not empty
-        if (username.isEmpty() || password.isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Please enter username and password!");
+        if (txtUser.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Username can not be empty");
+            txtUser.requestFocus();
             return;
-        }
-
-        if (selectedRole.equals(ROLE_MANAGER)) {
-            // Validate the username and password for Manager role
-            if (username.equals(ADMIN_USERNAME) && password.equals(ADMIN_PASSWORD)) {
-                JOptionPane.showMessageDialog(null, "Successful!");
-                ManagerView managerView = new ManagerView(this, true);
-                managerView.setVisible(true);
-            } else {
-                JOptionPane.showMessageDialog(null, "Invalid username or password, try again!");
-            }
-        } else if (selectedRole.equals(ROLE_STUDENT)) {
-            // Handle file reading for Student role
-            try (BufferedReader br = new BufferedReader(new FileReader("Account.dat"))) {
-                String line;
-                boolean loginSuccessful = false;
-                while ((line = br.readLine()) != null) {
-                    // Assume each line in Account.txt has format: username[TAB]password
-                    String[] credentials = line.split("\t");
-                    if (credentials.length == 2 && credentials[0].equals(username) && credentials[1].equals(password)) {
-                        loginSuccessful = true;
-                        break;
-                    }
-                }
-
-                if (loginSuccessful) {
-                    JOptionPane.showMessageDialog(null, "Login successful for student!");
-                    StudentView studentView = new StudentView(this, true);
-                    studentView.setVisible(true);
+        } else if (txtUser.getText().contains(" ")) {
+            JOptionPane.showMessageDialog(this, "Username can not contain space");
+            txtUser.requestFocus();
+            return;
+        } else if (txtPasswd.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Password can not be empty");
+            txtPasswd.requestFocus();
+            return;
+        } else {
+            if (selectedRole.equals(ROLE_MANAGER)) {
+                // Validate the username and password for Manager role
+                if (username.equals(ADMIN_USERNAME) && password.equals(ADMIN_PASSWORD)) {
+                    JOptionPane.showMessageDialog(null, "Successful!");
+                    ManagerView managerView = new ManagerView(this, true);
+                    managerView.setVisible(true);
                 } else {
                     JOptionPane.showMessageDialog(null, "Invalid username or password, try again!");
                 }
-            } catch (FileNotFoundException ex) {
-                JOptionPane.showMessageDialog(null, "Account file not found!");
-                Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
-            } catch (IOException ex) {
-                JOptionPane.showMessageDialog(null, "Error reading account file!");
-                Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+            } else if (selectedRole.equals(ROLE_STUDENT)) {
+                if (checkUsername()) {
+                    if (checkPassword()) {
+                        JOptionPane.showMessageDialog(this, "Login successfully");
+                        StudentView studentView = new StudentView(this, true);
+                        studentView.setVisible(true);
+                    } else {
+                        JOptionPane.showMessageDialog(this, "Wrong Password");
+                        txtPasswd.requestFocus();
+                        return;
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(this, "Wrong Username");
+                    txtUser.requestFocus();
+                    return;
+                }
             }
-        } else {
-            JOptionPane.showMessageDialog(null, "Invalid role, try again!");
         }
+
     }//GEN-LAST:event_btnLoginActionPerformed
 
     private void btnSignupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignupActionPerformed
@@ -282,6 +289,24 @@ public class MainFrame extends javax.swing.JFrame {
     private void myComboboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_myComboboxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_myComboboxActionPerformed
+
+    private boolean checkUsername() {
+        for (Owner owner : manageOwner.getListOwner()) {
+            if (owner.getUsername().equals(txtUser.getText().trim())) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private boolean checkPassword() {
+        for (Owner owner : manageOwner.getListOwner()) {
+            if (owner.getUsername().equals(txtUser.getText().trim()) && owner.getPassword().equals(txtPasswd.getText().trim())) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     /**
      * @param args the command line arguments
