@@ -36,6 +36,8 @@ public class MainFrame extends javax.swing.JFrame {
         }
        
         loadOwners();
+        
+        
 
     }
     
@@ -209,11 +211,7 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(255, 137, 137));
         jPanel5.setPreferredSize(new java.awt.Dimension(400, 500));
 
-<<<<<<< HEAD
         jLabel6.setToolTipText("");
-=======
-        jLabel6.setText("jLabel6");
->>>>>>> aea8034cb3c86f48e16bdd2046a06d11651773ac
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
