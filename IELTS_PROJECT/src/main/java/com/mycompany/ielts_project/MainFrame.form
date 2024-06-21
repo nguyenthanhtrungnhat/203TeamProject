@@ -306,7 +306,11 @@
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel6">
               <Properties>
+<<<<<<< HEAD
                 <Property name="toolTipText" type="java.lang.String" value=""/>
+=======
+                <Property name="text" type="java.lang.String" value="jLabel6"/>
+>>>>>>> aea8034cb3c86f48e16bdd2046a06d11651773ac
               </Properties>
             </Component>
           </SubComponents>
