@@ -11,9 +11,12 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 //import net.miginfocom.swing.MigLayout;
 
@@ -27,10 +30,15 @@ public class MainFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(HIDE_ON_CLOSE);
         // Initialize manageOwner and load existing owners
         manageOwner = new ManageOwner();
+        ImageIcon icon = new ImageIcon(".\\src\\main\\java\\icon\\logo1.png");
+        if(icon != null){
+            jLabel6.setIcon(icon);
+        }
+       
         loadOwners();
 
     }
-
+    
     private void loadOwners() {
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("Account.Dat"))) {
             manageOwner.setListOwner((ArrayList<Owner>) ois.readObject());
@@ -201,8 +209,7 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(255, 137, 137));
         jPanel5.setPreferredSize(new java.awt.Dimension(400, 500));
 
-        jLabel6.setIcon(new javax.swing.ImageIcon("D:\\CSE203\\203TeamProject\\IELTS_PROJECT\\src\\main\\java\\icon\\logo1.png")); // NOI18N
-        jLabel6.setText("jLabel6");
+        jLabel6.setToolTipText("");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -211,20 +218,20 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel7)
-                .addGap(0, 388, Short.MAX_VALUE))
+                .addGap(0, 300, Short.MAX_VALUE))
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addGap(23, 23, 23)
+                .addComponent(jLabel6)
+                .addContainerGap(377, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel7)
-                .addGap(75, 75, 75)
+                .addGap(59, 59, 59)
                 .addComponent(jLabel6)
-                .addGap(75, 75, 75))
+                .addGap(91, 91, 91))
         );
 
         jPanel1.add(jPanel5);
