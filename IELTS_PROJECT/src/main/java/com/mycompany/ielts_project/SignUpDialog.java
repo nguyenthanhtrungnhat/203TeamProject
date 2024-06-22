@@ -314,6 +314,7 @@ public class SignUpDialog extends javax.swing.JDialog {
     }//GEN-LAST:event_btnSignUpActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        JOptionPane.showMessageDialog(null, "Please click refresh button at Signin View to load account! Thankyou");
         dispose();
     }//GEN-LAST:event_btnBackActionPerformed
 

@@ -25,6 +25,7 @@ com\mycompany\ielts_project\Owner.class
 com\mycompany\ielts_project\Student.class
 com\mycompany\ielts_project\ShowResult.class
 com\mycompany\ielts_project\SignUpDialog$4.class
+com\mycompany\ielts_project\MainFrame$8.class
 com\mycompany\ielts_project\MainFrame$5.class
 com\mycompany\ielts_project\ManagerView$2.class
 com\mycompany\ielts_project\StudentView.class
