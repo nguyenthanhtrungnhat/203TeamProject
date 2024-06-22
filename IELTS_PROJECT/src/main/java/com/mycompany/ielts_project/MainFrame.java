@@ -123,7 +123,7 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         myCombobox.setBackground(new java.awt.Color(255, 102, 102));
-        myCombobox.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        myCombobox.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         myCombobox.setForeground(new java.awt.Color(255, 234, 221));
         myCombobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Student", "Manager" }));
         myCombobox.addActionListener(new java.awt.event.ActionListener() {
@@ -192,8 +192,8 @@ public class MainFrame extends javax.swing.JFrame {
                             .addComponent(rdShowpass)))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(27, 27, 27)
-                        .addComponent(myCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31)
+                        .addComponent(myCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(btnRefresh, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE))
@@ -221,14 +221,16 @@ public class MainFrame extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(rdShowpass)
                 .addGap(24, 24, 24)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(myCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnLogin)
-                    .addComponent(btnSignup))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnExit)
-                    .addComponent(btnRefresh))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnLogin)
+                            .addComponent(btnSignup))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnExit)
+                            .addComponent(btnRefresh)))
+                    .addComponent(myCombobox))
                 .addContainerGap(56, Short.MAX_VALUE))
         );
 
