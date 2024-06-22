@@ -77,6 +77,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         btnExit = new javax.swing.JButton();
         rdShowpass = new javax.swing.JRadioButton();
+        btnRefresh = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         Big_logo_signinpage = new javax.swing.JLabel();
@@ -162,6 +163,13 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        btnRefresh.setText("Refresh");
+        btnRefresh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRefreshActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -186,14 +194,14 @@ public class MainFrame extends javax.swing.JFrame {
                         .addGap(27, 27, 27)
                         .addComponent(myCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(31, 31, 31)
-                        .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnRefresh, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnLogin, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE))
                         .addGap(29, 29, 29)
-                        .addComponent(btnSignup, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnSignup, javax.swing.GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
+                            .addComponent(btnExit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(33, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnExit)
-                .addGap(163, 163, 163))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -218,7 +226,9 @@ public class MainFrame extends javax.swing.JFrame {
                     .addComponent(btnLogin)
                     .addComponent(btnSignup))
                 .addGap(18, 18, 18)
-                .addComponent(btnExit)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnExit)
+                    .addComponent(btnRefresh))
                 .addContainerGap(56, Short.MAX_VALUE))
         );
 
@@ -346,7 +356,8 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_myComboboxActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-        dispose();
+       System.exit(0);
+      //  dispose();
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void rdShowpassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdShowpassActionPerformed
@@ -356,6 +367,11 @@ public class MainFrame extends javax.swing.JFrame {
             txtPasswd.setEchoChar('*'); // Hide the password
         }
     }//GEN-LAST:event_rdShowpassActionPerformed
+
+    private void btnRefreshActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefreshActionPerformed
+        loadOwners();
+        JOptionPane.showMessageDialog(null, "Refreshed");
+    }//GEN-LAST:event_btnRefreshActionPerformed
 
     private boolean checkUsername() {
         for (Owner owner : manageOwner.getListOwner()) {
@@ -414,6 +430,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel Big_logo_signinpage;
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnLogin;
+    private javax.swing.JButton btnRefresh;
     private javax.swing.JButton btnSignup;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
