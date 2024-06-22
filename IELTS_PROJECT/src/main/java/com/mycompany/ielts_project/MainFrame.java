@@ -146,6 +146,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel4.setText("Welcome ReadPeak");
 
         btnExit.setBackground(new java.awt.Color(255, 102, 102));
+        btnExit.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnExit.setForeground(new java.awt.Color(255, 234, 221));
         btnExit.setText("Exit");
         btnExit.addActionListener(new java.awt.event.ActionListener() {
@@ -226,7 +227,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel7)
-                .addGap(0, 300, Short.MAX_VALUE))
+                .addGap(0, 350, Short.MAX_VALUE))
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addComponent(Big_logo_signinpage)
