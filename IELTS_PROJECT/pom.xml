@@ -11,20 +11,5 @@
         <maven.compiler.target>20</maven.compiler.target>
         <exec.mainClass>com.mycompany.ielts_project.IELTS_PROJECT</exec.mainClass>
     </properties>
-    <build>
-    <plugins>
-        <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-jar-plugin</artifactId>
-            <version>3.2.0</version>
-            <configuration>
-                <archive>
-                    <manifestEntries>
-                        <SplashScreen-Image>".\\src\\main\\java\\icon\\logo-01.png"</SplashScreen-Image>
-                    </manifestEntries>
-                </archive>
-            </configuration>
-        </plugin>
-    </plugins>
-</build>
+    
 </project>

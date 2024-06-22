@@ -4,6 +4,7 @@
  */
 package com.mycompany.ielts_project;
 
+import java.awt.Toolkit;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -13,6 +14,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.TooManyListenersException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.Icon;
@@ -32,9 +34,10 @@ public class MainFrame extends javax.swing.JFrame {
         manageOwner = new ManageOwner();
         ImageIcon icon = new ImageIcon(".\\src\\main\\java\\icon\\logo1.png");
         if(icon != null){
-            jLabel6.setIcon(icon);
+            Big_logo_signinpage.setIcon(icon);
         }
-       
+        ImageIcon logo = new ImageIcon(".\\src\\main\\java\\icon\\logo-01.png");
+        setIconImage(logo.getImage());
         loadOwners();
         
         
@@ -76,7 +79,7 @@ public class MainFrame extends javax.swing.JFrame {
         btnExit = new javax.swing.JButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        Big_logo_signinpage = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("ReadPeak");
@@ -142,6 +145,8 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(105, 105, 105));
         jLabel4.setText("Welcome ReadPeak");
 
+        btnExit.setBackground(new java.awt.Color(255, 102, 102));
+        btnExit.setForeground(new java.awt.Color(255, 234, 221));
         btnExit.setText("Exit");
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -179,7 +184,7 @@ public class MainFrame extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(btnExit)
-                .addGap(161, 161, 161))
+                .addGap(163, 163, 163))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -212,7 +217,7 @@ public class MainFrame extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(255, 137, 137));
         jPanel5.setPreferredSize(new java.awt.Dimension(400, 500));
 
-        jLabel6.setToolTipText("");
+        Big_logo_signinpage.setToolTipText("");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -224,7 +229,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(0, 300, Short.MAX_VALUE))
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addComponent(jLabel6)
+                .addComponent(Big_logo_signinpage)
                 .addContainerGap(377, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -233,7 +238,7 @@ public class MainFrame extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel7)
                 .addGap(59, 59, 59)
-                .addComponent(jLabel6)
+                .addComponent(Big_logo_signinpage)
                 .addGap(91, 91, 91))
         );
 
@@ -383,6 +388,7 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Big_logo_signinpage;
     private javax.swing.JButton btnExit;
     private javax.swing.JButton btnLogin;
     private javax.swing.JButton btnSignup;
@@ -390,7 +396,6 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -399,4 +404,9 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPasswordField txtPasswd;
     private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables
+
+//    private void setIconImage() {
+//        //setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("logo-01.png")));
+//        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("logo-01.png")));
+//    }
 }

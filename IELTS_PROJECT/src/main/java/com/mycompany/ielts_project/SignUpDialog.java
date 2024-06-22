@@ -16,6 +16,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -37,6 +38,11 @@ public class SignUpDialog extends javax.swing.JDialog {
         // Initialize manageOwner and load existing owners
         manageOwner = new ManageOwner();
         loadOwners();
+        
+        ImageIcon icon = new ImageIcon(".\\src\\main\\java\\icon\\logo1.png");
+        if(icon != null){
+            big_logo_signuppage.setIcon(icon);
+        }
     }
 
     private void loadOwners() {
@@ -80,6 +86,7 @@ public class SignUpDialog extends javax.swing.JDialog {
         jPanel6 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
+        big_logo_signuppage = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -107,13 +114,19 @@ public class SignUpDialog extends javax.swing.JDialog {
                 .addGap(0, 200, Short.MAX_VALUE)
                 .addComponent(jLabel7)
                 .addGap(0, 200, Short.MAX_VALUE))
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addGap(97, 97, 97)
+                .addComponent(big_logo_signuppage, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(0, 250, Short.MAX_VALUE)
+                .addGap(0, 230, Short.MAX_VALUE)
+                .addComponent(big_logo_signuppage)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel7)
-                .addGap(0, 250, Short.MAX_VALUE))
+                .addGap(0, 258, Short.MAX_VALUE))
         );
 
         jPanel6.add(jPanel5);
@@ -318,6 +331,7 @@ public class SignUpDialog extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel big_logo_signuppage;
     private javax.swing.JButton btnBack;
     private javax.swing.JButton btnSignUp;
     private javax.swing.JLabel jLabel1;
