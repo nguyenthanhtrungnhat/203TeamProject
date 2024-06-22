@@ -166,6 +166,7 @@ public class SignUpDialog extends javax.swing.JDialog {
         jLabel4.setText("Welcome ReadPeak");
 
         btnBack.setBackground(new java.awt.Color(255, 60, 60));
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnBack.setForeground(new java.awt.Color(255, 234, 221));
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -174,6 +175,8 @@ public class SignUpDialog extends javax.swing.JDialog {
             }
         });
 
+        rdShowpass.setBackground(new java.awt.Color(255, 234, 221));
+        rdShowpass.setForeground(new java.awt.Color(102, 102, 102));
         rdShowpass.setText("Show password");
         rdShowpass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -156,6 +156,8 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        rdShowpass.setBackground(new java.awt.Color(255, 234, 221));
+        rdShowpass.setForeground(new java.awt.Color(102, 102, 102));
         rdShowpass.setText("Show password");
         rdShowpass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
