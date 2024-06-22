@@ -148,6 +148,20 @@ public class Exam3 extends javax.swing.JDialog {
                     ((Timer) e.getSource()).stop();
                     lblTime.setText("00:00");
                     JOptionPane.showMessageDialog(null, "Time is up! Please submit.");
+                    // Set text fields to be uneditable
+                    txtQ1.setEditable(false);
+                    txtQ2.setEditable(false);
+                    txtQ3.setEditable(false);
+                    txtQ4.setEditable(false);
+                    txtQ5.setEditable(false);
+                    txtQ6.setEditable(false);
+                    txtQ7.setEditable(false);
+                    txtQ8.setEditable(false);
+                    txtQ9.setEditable(false);
+                    txtQ10.setEditable(false);
+                    txtQ11.setEditable(false);
+                    txtQ12.setEditable(false);
+                    txtQ13.setEditable(false);
                     return;
                 }
                 lblTime.setText(String.format("%02d:%02d", minutes, seconds));

@@ -137,6 +137,20 @@ public class Exam1 extends javax.swing.JDialog {
                     ((Timer) e.getSource()).stop();
                     lblTime.setText("00:00");
                     JOptionPane.showMessageDialog(null, "Time is up! Please submit.");
+                    // Set text fields to be uneditable
+                    txtQ1.setEditable(false);
+                    txtQ2.setEditable(false);
+                    txtQ3.setEditable(false);
+                    txtQ4.setEditable(false);
+                    cbb1.setEditable(false);
+                    cbb2.setEditable(false);
+                    cbb3.setEditable(false);
+                    txtQ8.setEditable(false);
+                    txtQ9.setEditable(false);
+                    txtQ10.setEditable(false);
+                    txtQ11.setEditable(false);
+                    txtQ12.setEditable(false);
+                    txtQ13.setEditable(false);
                     return;
                 }
                 lblTime.setText(String.format("%02d:%02d", minutes, seconds));
@@ -538,7 +552,7 @@ boolean startPressed = false;
                 }
                 // Perform your submission logic (e.g., compareTextToFile())
                 compareTextToFile();
-               startPressed = false;
+                startPressed = false;
                 String name = txtName.getText().toString();
                 String age = txtAge.getText().toString();
                 String examType = txtExamType.getText().toString();
