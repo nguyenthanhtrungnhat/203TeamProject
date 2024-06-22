@@ -12,9 +12,5 @@ Name: Nhat12, Age: 23, Total Points: 1/13 questions, Exam Type: 1
 Name: Nhat1212, Age: 23, Total Points: 1/13 questions, Exam Type: 1
 Name: Nhat1212121212, Age: 23, Total Points: 1/13 questions, Exam Type: 1
 Name: Nhat121212, Age: 23, Total Points: 1/13 questions, Exam Type: 1
-a
-a
-a
-a
-a
-a
+Name: nhat, Age: 21, Total Points: 1/13 questions, Exam Type: 1
+Name: huong, Age: 21, Total Points: 1/13 questions, Exam Type: 1
