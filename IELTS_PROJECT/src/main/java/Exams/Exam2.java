@@ -494,8 +494,7 @@ public class Exam2 extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 boolean startPressed = false;
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
-        // TODO add your handling code here:
-        if (startPressed == false) {
+          if (startPressed == false) {
             JOptionPane.showMessageDialog(null, "You must Start first!");
         } else {
             // Check if required fields are filled
@@ -509,13 +508,17 @@ boolean startPressed = false;
                 startPressed = false;
                 String name = txtName.getText().toString();
                 String age = txtAge.getText().toString();
-                String examType = txtExamType.getText().toString();
+
                 String score = lblResult.getText().toString();
-                Student student = new Student(name, age, examType, score);
+                String examType = txtExamType.getText().toString();
+                Student student = new Student(name, age, score, examType);
                 listStudent.Add(student);
                 saveList();
+
             } else {
-                JOptionPane.showMessageDialog(this, "All questions must be answered.", "Error", JOptionPane.ERROR_MESSAGE);
+                // Show error message
+                JOptionPane.showMessageDialog(this, "All required fields must be filled out.", "Error", JOptionPane.ERROR_MESSAGE);
+
                 // Focus on the first empty field
                 if (txtName.getText().isEmpty()) {
                     txtName.requestFocusInWindow();
@@ -559,7 +562,7 @@ boolean startPressed = false;
     private void saveList() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("ListStudent.txt", true))) {
             for (Student student : listStudent.getList()) {
-                writer.write(student.getName() + "," + student.getAge() + "," + student.getExamType() + "," + student.getScore());
+                writer.write("Name: " + student.getName() + ", Age: " + student.getAge() + ", " + student.getScore() + ", Exam Type: " + student.getExamType());
                 writer.newLine();
             }
             JOptionPane.showMessageDialog(this, "Student list saved successfully to ListStudent.txt");

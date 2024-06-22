@@ -29,21 +29,20 @@ public class MainFrame extends javax.swing.JFrame {
     public MainFrame() {
         initComponents();
         this.setLocationRelativeTo(null);
+
         setDefaultCloseOperation(HIDE_ON_CLOSE);
         // Initialize manageOwner and load existing owners
         manageOwner = new ManageOwner();
         ImageIcon icon = new ImageIcon(".\\src\\main\\java\\icon\\logo1.png");
-        if(icon != null){
+        if (icon != null) {
             Big_logo_signinpage.setIcon(icon);
         }
         ImageIcon logo = new ImageIcon(".\\src\\main\\java\\icon\\logo-01.png");
         setIconImage(logo.getImage());
         loadOwners();
-        
-        
 
     }
-    
+
     private void loadOwners() {
         try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("Account.Dat"))) {
             manageOwner.setListOwner((ArrayList<Owner>) ois.readObject());
@@ -77,6 +76,7 @@ public class MainFrame extends javax.swing.JFrame {
         btnSignup = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         btnExit = new javax.swing.JButton();
+        rdShowpass = new javax.swing.JRadioButton();
         jPanel5 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
         Big_logo_signinpage = new javax.swing.JLabel();
@@ -155,19 +155,19 @@ public class MainFrame extends javax.swing.JFrame {
             }
         });
 
+        rdShowpass.setText("Show password");
+        rdShowpass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdShowpassActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
-                        .addComponent(myCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(31, 31, 31)
-                        .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(29, 29, 29)
-                        .addComponent(btnSignup, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(137, 137, 137)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -180,7 +180,15 @@ public class MainFrame extends javax.swing.JFrame {
                             .addComponent(txtUser, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtPasswd, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(rdShowpass)))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(myCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31)
+                        .addComponent(btnLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(29, 29, 29)
+                        .addComponent(btnSignup, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(33, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -202,7 +210,9 @@ public class MainFrame extends javax.swing.JFrame {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtPasswd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(rdShowpass)
+                .addGap(24, 24, 24)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(myCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnLogin)
@@ -298,20 +308,24 @@ public class MainFrame extends javax.swing.JFrame {
                     JOptionPane.showMessageDialog(null, "Invalid username or password, try again!");
                 }
             } else if (selectedRole.equals(ROLE_STUDENT)) {
-                if (checkUsername()) {
-                    if (checkPassword()) {
-                        JOptionPane.showMessageDialog(this, "Login successfully");
-                        StudentView studentView = new StudentView(this, true);
-                        studentView.setVisible(true);
+                if (!username.equals(ADMIN_USERNAME) && password.equals(ADMIN_PASSWORD)) {
+                    JOptionPane.showMessageDialog(null, "Wrong role, please choose again!");
+                } else {
+                    if (checkUsername()) {
+                        if (checkPassword()) {
+                            JOptionPane.showMessageDialog(this, "Login successfully");
+                            StudentView studentView = new StudentView(this, true);
+                            studentView.setVisible(true);
+                        } else {
+                            JOptionPane.showMessageDialog(this, "Wrong Password");
+                            txtPasswd.requestFocus();
+                            return;
+                        }
                     } else {
-                        JOptionPane.showMessageDialog(this, "Wrong Password");
-                        txtPasswd.requestFocus();
+                        JOptionPane.showMessageDialog(this, "Wrong Username");
+                        txtUser.requestFocus();
                         return;
                     }
-                } else {
-                    JOptionPane.showMessageDialog(this, "Wrong Username");
-                    txtUser.requestFocus();
-                    return;
                 }
             }
         }
@@ -334,6 +348,14 @@ public class MainFrame extends javax.swing.JFrame {
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
         dispose();
     }//GEN-LAST:event_btnExitActionPerformed
+
+    private void rdShowpassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdShowpassActionPerformed
+        if (rdShowpass.isSelected()) {
+            txtPasswd.setEchoChar((char) 0); // Show the password
+        } else {
+            txtPasswd.setEchoChar('*'); // Hide the password
+        }
+    }//GEN-LAST:event_rdShowpassActionPerformed
 
     private boolean checkUsername() {
         for (Owner owner : manageOwner.getListOwner()) {
@@ -402,6 +424,7 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JComboBox<String> myCombobox;
+    private javax.swing.JRadioButton rdShowpass;
     private javax.swing.JPasswordField txtPasswd;
     private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables

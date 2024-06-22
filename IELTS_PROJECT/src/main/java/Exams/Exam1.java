@@ -555,9 +555,10 @@ boolean startPressed = false;
                 startPressed = false;
                 String name = txtName.getText().toString();
                 String age = txtAge.getText().toString();
-                String examType = txtExamType.getText().toString();
+
                 String score = lblResult.getText().toString();
-                Student student = new Student(name, age, examType, score);
+                String examType = txtExamType.getText().toString();
+                Student student = new Student(name, age, score, examType);
                 listStudent.Add(student);
                 saveList();
 
@@ -579,7 +580,7 @@ boolean startPressed = false;
     private void saveList() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("ListStudent.txt", true))) {
             for (Student student : listStudent.getList()) {
-                writer.write(student.getName() + "," + student.getAge() + "," + student.getExamType() + "," + student.getScore());
+                writer.write("Name: " + student.getName() + ", Age: " + student.getAge() + ", " + student.getScore() + ", Exam Type: " + student.getExamType());
                 writer.newLine();
             }
             JOptionPane.showMessageDialog(this, "Student list saved successfully to ListStudent.txt");

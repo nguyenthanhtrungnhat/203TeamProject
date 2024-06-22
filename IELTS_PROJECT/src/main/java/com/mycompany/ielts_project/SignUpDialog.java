@@ -38,9 +38,9 @@ public class SignUpDialog extends javax.swing.JDialog {
         // Initialize manageOwner and load existing owners
         manageOwner = new ManageOwner();
         loadOwners();
-        
+
         ImageIcon icon = new ImageIcon(".\\src\\main\\java\\icon\\logo1.png");
-        if(icon != null){
+        if (icon != null) {
             big_logo_signuppage.setIcon(icon);
         }
     }
@@ -91,11 +91,14 @@ public class SignUpDialog extends javax.swing.JDialog {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         txtUser = new javax.swing.JTextField();
-        txtPasswd = new javax.swing.JTextField();
         btnSignUp = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
+        rdShowpass = new javax.swing.JRadioButton();
+        txtPasswd = new javax.swing.JPasswordField();
+        jLabel5 = new javax.swing.JLabel();
+        txtConfirm = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(800, 500));
@@ -143,12 +146,6 @@ public class SignUpDialog extends javax.swing.JDialog {
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setText("Password");
 
-        txtPasswd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtPasswdActionPerformed(evt);
-            }
-        });
-
         btnSignUp.setBackground(new java.awt.Color(255, 102, 102));
         btnSignUp.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnSignUp.setForeground(new java.awt.Color(255, 234, 221));
@@ -177,6 +174,17 @@ public class SignUpDialog extends javax.swing.JDialog {
             }
         });
 
+        rdShowpass.setText("Show password");
+        rdShowpass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdShowpassActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel5.setText("Confirm password");
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -188,31 +196,34 @@ public class SignUpDialog extends javax.swing.JDialog {
                         .addGap(102, 102, 102)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel4))
-                .addContainerGap(41, Short.MAX_VALUE))
+                .addContainerGap(43, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGap(201, 201, 201))
                         .addGroup(jPanel4Layout.createSequentialGroup()
-                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(txtPasswd, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
-                                .addComponent(txtUser, javax.swing.GroupLayout.Alignment.LEADING))
-                            .addContainerGap()))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                        .addComponent(btnSignUp)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnBack)
-                        .addGap(113, 113, 113))))
+                            .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(txtUser, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
+                                .addComponent(txtPasswd)
+                                .addGroup(jPanel4Layout.createSequentialGroup()
+                                    .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(rdShowpass)
+                                        .addComponent(btnSignUp, javax.swing.GroupLayout.Alignment.TRAILING))
+                                    .addGap(18, 18, 18)
+                                    .addComponent(btnBack)))
+                            .addGap(14, 14, 14)))
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(62, Short.MAX_VALUE)
+                .addContainerGap(56, Short.MAX_VALUE)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addComponent(jLabel4)
@@ -224,11 +235,17 @@ public class SignUpDialog extends javax.swing.JDialog {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(txtPasswd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnSignUp)
-                    .addComponent(btnBack))
-                .addGap(115, 115, 115))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel5)
+                .addGap(7, 7, 7)
+                .addComponent(txtConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(rdShowpass)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnBack)
+                    .addComponent(btnSignUp))
+                .addGap(61, 61, 61))
         );
 
         jPanel6.add(jPanel4);
@@ -253,19 +270,33 @@ public class SignUpDialog extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSignUpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSignUpActionPerformed
+
         if (txtUser.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Username can not be empty");
+            JOptionPane.showMessageDialog(this, "Username cannot be empty");
             txtUser.requestFocus();
             return;
         } else if (txtUser.getText().contains(" ")) {
-            JOptionPane.showMessageDialog(this, "Username can not contain space");
+            JOptionPane.showMessageDialog(this, "Username cannot contain spaces");
             txtUser.requestFocus();
             return;
         } else if (txtPasswd.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Password cannot be empty.");
+            JOptionPane.showMessageDialog(this, "Password cannot be empty");
             txtPasswd.requestFocus();
             return;
+        } else if (txtConfirm.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Password cannot be empty");
+            txtConfirm.requestFocus();
+            return;
+        } else if (!txtPasswd.getText().equals(txtConfirm.getText())) {
+            JOptionPane.showMessageDialog(this, "Passwords do not match");
+            txtConfirm.requestFocus();
+            return;
+        } else if (txtUser.getText().equalsIgnoreCase("admin")) {
+            JOptionPane.showMessageDialog(this, "Username not allowed!");
+            txtUser.requestFocus();
+            return;
         }
+
         String username = txtUser.getText();
         String password = txtPasswd.getText();
 
@@ -277,18 +308,24 @@ public class SignUpDialog extends javax.swing.JDialog {
             saveOwners();
             dispose();
         } else {
-            JOptionPane.showMessageDialog(this, "Username is already exist.");
+            JOptionPane.showMessageDialog(this, "Username already exists.");
             return;
         }
     }//GEN-LAST:event_btnSignUpActionPerformed
 
-    private void txtPasswdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswdActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPasswdActionPerformed
-
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
-      dispose();
+        dispose();
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void rdShowpassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdShowpassActionPerformed
+        if (rdShowpass.isSelected()) {
+            txtPasswd.setEchoChar((char) 0); // Show the password
+            txtConfirm.setEchoChar((char) 0);
+        } else {
+            txtPasswd.setEchoChar('*'); // Hide the password
+            txtConfirm.setEchoChar('*');
+        }
+    }//GEN-LAST:event_rdShowpassActionPerformed
 
     /**
      * @param args the command line arguments
@@ -340,11 +377,14 @@ public class SignUpDialog extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JTextField txtPasswd;
+    private javax.swing.JRadioButton rdShowpass;
+    private javax.swing.JPasswordField txtConfirm;
+    private javax.swing.JPasswordField txtPasswd;
     private javax.swing.JTextField txtUser;
     // End of variables declaration//GEN-END:variables
 }
