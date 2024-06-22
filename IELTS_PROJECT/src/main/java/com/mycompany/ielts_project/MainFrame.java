@@ -145,7 +145,7 @@ public class MainFrame extends javax.swing.JFrame {
         jLabel4.setForeground(new java.awt.Color(105, 105, 105));
         jLabel4.setText("Welcome ReadPeak");
 
-        btnExit.setBackground(new java.awt.Color(255, 102, 102));
+        btnExit.setBackground(new java.awt.Color(255, 60, 60));
         btnExit.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnExit.setForeground(new java.awt.Color(255, 234, 221));
         btnExit.setText("Exit");

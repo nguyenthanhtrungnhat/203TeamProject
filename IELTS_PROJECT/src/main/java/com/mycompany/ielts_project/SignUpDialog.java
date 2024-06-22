@@ -165,7 +165,7 @@ public class SignUpDialog extends javax.swing.JDialog {
         jLabel4.setForeground(new java.awt.Color(105, 105, 105));
         jLabel4.setText("Welcome ReadPeak");
 
-        btnBack.setBackground(new java.awt.Color(255, 102, 102));
+        btnBack.setBackground(new java.awt.Color(255, 60, 60));
         btnBack.setForeground(new java.awt.Color(255, 234, 221));
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {

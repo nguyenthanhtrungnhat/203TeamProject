@@ -67,7 +67,8 @@ public class StudentView extends javax.swing.JDialog {
             }
         });
 
-        btnBack.setBackground(new java.awt.Color(252, 174, 174));
+        btnBack.setBackground(new java.awt.Color(255, 60, 60));
+        btnBack.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
