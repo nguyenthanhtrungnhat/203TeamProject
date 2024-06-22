@@ -8,6 +8,8 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import javax.swing.JOptionPane;
+import javax.swing.JTextArea;
 
 /**
  *
@@ -119,8 +121,10 @@ public class Edit1 extends javax.swing.JDialog {
 
     private void btnDoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDoneActionPerformed
         saveTextToFile("example.txt", txtEditBody.getText());
-         saveTextToFile("answer.txt", txtEditAnswers.getText());
+
+        saveTextToFile("answer.txt", txtEditAnswers.getText());
         this.dispose();
+
     }//GEN-LAST:event_btnDoneActionPerformed
     private void loadTextFromFile(String filePath) {
         StringBuilder content = new StringBuilder();
@@ -155,6 +159,7 @@ public class Edit1 extends javax.swing.JDialog {
     }
 
     private void saveTextToFile(String filePath, String content) {
+
         try (FileWriter writer = new FileWriter(filePath)) {
             writer.write(content);
         } catch (IOException e) {
