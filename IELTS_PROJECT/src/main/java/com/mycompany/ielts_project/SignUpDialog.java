@@ -149,7 +149,7 @@ public class SignUpDialog extends javax.swing.JDialog {
             }
         });
 
-        btnSignUp.setBackground(new java.awt.Color(255, 137, 137));
+        btnSignUp.setBackground(new java.awt.Color(255, 102, 102));
         btnSignUp.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnSignUp.setForeground(new java.awt.Color(255, 234, 221));
         btnSignUp.setText("SignUp");
@@ -168,6 +168,8 @@ public class SignUpDialog extends javax.swing.JDialog {
         jLabel4.setForeground(new java.awt.Color(105, 105, 105));
         jLabel4.setText("Welcome ReadPeak");
 
+        btnBack.setBackground(new java.awt.Color(255, 102, 102));
+        btnBack.setForeground(new java.awt.Color(255, 234, 221));
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
