@@ -31,6 +31,7 @@ public class ShowResult extends javax.swing.JDialog {
         txtResult.setEditable(true);
         txtResult.setLineWrap(true); // Set line wrap to true
         txtResult.setWrapStyleWord(true);
+
         load();
     }
 
@@ -63,6 +64,9 @@ public class ShowResult extends javax.swing.JDialog {
         jLabel2 = new javax.swing.JLabel();
         btnSave = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
+        btnSearchByName = new javax.swing.JButton();
+        txtSearchByName = new javax.swing.JTextField();
+        btnRef = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -88,6 +92,20 @@ public class ShowResult extends javax.swing.JDialog {
             }
         });
 
+        btnSearchByName.setText("Search by name");
+        btnSearchByName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSearchByNameActionPerformed(evt);
+            }
+        });
+
+        btnRef.setText("Refresh");
+        btnRef.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRefActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -95,13 +113,19 @@ public class ShowResult extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addGap(168, 168, 168)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnSave)
-                        .addGap(36, 36, 36)
-                        .addComponent(btnBack))
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel1)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 413, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(btnSave)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(btnSearchByName)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(txtSearchByName)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(btnBack))
+                        .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addComponent(jScrollPane2))
+                    .addComponent(btnRef, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(176, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -116,8 +140,12 @@ public class ShowResult extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSave)
+                    .addComponent(btnSearchByName)
+                    .addComponent(txtSearchByName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnBack))
-                .addContainerGap(66, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnRef)
+                .addContainerGap(37, Short.MAX_VALUE))
         );
 
         pack();
@@ -130,6 +158,33 @@ public class ShowResult extends javax.swing.JDialog {
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         save();
     }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void btnRefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefActionPerformed
+         load();
+    }//GEN-LAST:event_btnRefActionPerformed
+
+    private void btnSearchByNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchByNameActionPerformed
+        String searchTerm = txtSearchByName.getText().trim();
+        if (searchTerm.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Please enter a name to search for.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+
+        try (BufferedReader reader = new BufferedReader(new FileReader("ListStudent.txt"))) {
+            StringBuilder sb = new StringBuilder();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                if (line.contains(searchTerm)) {
+                    sb.append(line).append("\n");
+                }
+            }
+            txtResult.setText(sb.toString());
+
+        } catch (IOException e) {
+            JOptionPane.showMessageDialog(this, "Error searching file: " + e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+            e.printStackTrace();
+        }
+    }//GEN-LAST:event_btnSearchByNameActionPerformed
     private void save() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("ListStudent.txt"))) {
             writer.write(txtResult.getText());
@@ -184,10 +239,13 @@ public class ShowResult extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
+    private javax.swing.JButton btnRef;
     private javax.swing.JButton btnSave;
+    private javax.swing.JButton btnSearchByName;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea txtResult;
+    private javax.swing.JTextField txtSearchByName;
     // End of variables declaration//GEN-END:variables
 }

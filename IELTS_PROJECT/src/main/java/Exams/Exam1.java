@@ -528,7 +528,7 @@ boolean startPressed = false;
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         if (startPressed == false) {
-            JOptionPane.showMessageDialog(null, "You must submit first!");
+            JOptionPane.showMessageDialog(null, "You must Start first!");
         } else {
             // Check if required fields are filled
             if (!txtName.getText().isEmpty() && !txtAge.getText().isEmpty() && !txtExamType.getText().isEmpty()) {
@@ -538,6 +538,7 @@ boolean startPressed = false;
                 }
                 // Perform your submission logic (e.g., compareTextToFile())
                 compareTextToFile();
+               startPressed = false;
                 String name = txtName.getText().toString();
                 String age = txtAge.getText().toString();
                 String examType = txtExamType.getText().toString();
@@ -562,7 +563,7 @@ boolean startPressed = false;
         }
     }//GEN-LAST:event_btnSubmitActionPerformed
     private void saveList() {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("ListStudent.txt"))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("ListStudent.txt", true))) {
             for (Student student : listStudent.getList()) {
                 writer.write(student.getName() + "," + student.getAge() + "," + student.getExamType() + "," + student.getScore());
                 writer.newLine();
@@ -573,20 +574,23 @@ boolean startPressed = false;
             e.printStackTrace(); // For debugging purposes
         }
     }
+
     private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
         // TODO add your handling code here:
-        txtQ1.setText(null);
-        txtQ2.setText(null);
-        txtQ3.setText(null);
-        txtQ4.setText(null);
-        txtQ8.setText(null);
-        txtQ9.setText(null);
-        txtQ10.setText(null);
-        txtQ11.setText(null);
-        txtQ12.setText(null);
-        txtQ13.setText(null);
-        countdownTimer();
-        startPressed = true;
+        if (startPressed == false) {
+            txtQ1.setText(null);
+            txtQ2.setText(null);
+            txtQ3.setText(null);
+            txtQ4.setText(null);
+            txtQ8.setText(null);
+            txtQ9.setText(null);
+            txtQ10.setText(null);
+            txtQ11.setText(null);
+            txtQ12.setText(null);
+            txtQ13.setText(null);
+            countdownTimer();
+            startPressed = true;
+        }
     }//GEN-LAST:event_btnStartActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
