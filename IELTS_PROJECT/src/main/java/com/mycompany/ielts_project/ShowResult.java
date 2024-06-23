@@ -12,6 +12,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -31,6 +32,8 @@ public class ShowResult extends javax.swing.JDialog {
         txtResult.setEditable(true);
         txtResult.setLineWrap(true); // Set line wrap to true
         txtResult.setWrapStyleWord(true);
+        ImageIcon logo = new ImageIcon(".\\src\\main\\java\\icon\\logo-01.png");
+        setIconImage(logo.getImage());
 
         load();
     }

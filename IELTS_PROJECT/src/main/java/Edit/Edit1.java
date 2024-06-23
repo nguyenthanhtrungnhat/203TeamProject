@@ -8,6 +8,7 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 
@@ -31,6 +32,8 @@ public class Edit1 extends javax.swing.JDialog {
         txtEditAnswers.setLineWrap(true); // Set line wrap to true
         txtEditAnswers.setWrapStyleWord(true); // Wrap on word boundaries
         loadTextFromFileA("answer.txt");
+        ImageIcon logo = new ImageIcon(".\\src\\main\\java\\icon\\logo-01.png");
+        setIconImage(logo.getImage());
     }
 
     /**

@@ -14,6 +14,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.Timer;
@@ -39,6 +40,8 @@ public class Exam2 extends javax.swing.JDialog {
         lblBody.setWrapStyleWord(true); // Wrap on word boundaries
 
         loadTextFromFile("example2.txt");
+        ImageIcon logo = new ImageIcon(".\\src\\main\\java\\icon\\logo-01.png");
+        setIconImage(logo.getImage());
     }
 
     private void loadTextFromFile(String filePath) {
