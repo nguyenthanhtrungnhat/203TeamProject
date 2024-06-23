@@ -657,6 +657,7 @@ boolean startPressed = false;
     }//GEN-LAST:event_btnStartActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
+       startPressed = false;
         dispose();
     }//GEN-LAST:event_btnExitActionPerformed
 
