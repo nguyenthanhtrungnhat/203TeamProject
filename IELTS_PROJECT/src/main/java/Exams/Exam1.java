@@ -215,7 +215,7 @@ public class Exam1 extends javax.swing.JDialog {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        lblBody.setBackground(new java.awt.Color(255, 250, 250));
+        lblBody.setBackground(new java.awt.Color(255, 237, 235));
         lblBody.setColumns(20);
         lblBody.setForeground(new java.awt.Color(51, 51, 51));
         lblBody.setRows(5);
@@ -225,10 +225,16 @@ public class Exam1 extends javax.swing.JDialog {
 
         jPanel4.setBackground(new java.awt.Color(255, 234, 221));
 
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(102, 102, 102));
         jLabel14.setText("Name");
 
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(102, 102, 102));
         jLabel15.setText("Age");
 
+        jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(102, 102, 102));
         jLabel16.setText("Exam");
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
@@ -252,7 +258,7 @@ public class Exam1 extends javax.swing.JDialog {
                             .addComponent(txtName)
                             .addComponent(txtExamType, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jLabel17))
-                .addGap(0, 73, Short.MAX_VALUE))
+                .addGap(0, 12, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -277,7 +283,7 @@ public class Exam1 extends javax.swing.JDialog {
         jPanel1.setBackground(new java.awt.Color(255, 234, 221));
 
         btnSubmit.setBackground(new java.awt.Color(255, 137, 137));
-        btnSubmit.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnSubmit.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         btnSubmit.setForeground(new java.awt.Color(255, 234, 221));
         btnSubmit.setText("Submit");
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {
@@ -305,7 +311,7 @@ public class Exam1 extends javax.swing.JDialog {
         lblTime.setText("The time count down");
 
         btnStart.setBackground(new java.awt.Color(255, 137, 137));
-        btnStart.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnStart.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         btnStart.setForeground(new java.awt.Color(255, 234, 221));
         btnStart.setText("Start");
         btnStart.setActionCommand("btnStart");
@@ -401,8 +407,8 @@ public class Exam1 extends javax.swing.JDialog {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(56, 56, 56)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel11)
@@ -446,11 +452,11 @@ public class Exam1 extends javax.swing.JDialog {
                             .addComponent(txtQ9, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtQ3, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtQ4, javax.swing.GroupLayout.PREFERRED_SIZE, 241, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGap(36, 36, 36))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

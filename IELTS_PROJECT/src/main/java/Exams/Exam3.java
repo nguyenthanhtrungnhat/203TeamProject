@@ -227,14 +227,25 @@ public class Exam3 extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
 
+        jPanel3.setBackground(new java.awt.Color(255, 234, 221));
         jPanel3.setLayout(null);
 
+        jPanel2.setBackground(new java.awt.Color(255, 234, 221));
+
+        jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(102, 102, 102));
         jLabel14.setText("Student Infomation");
 
+        jLabel15.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(102, 102, 102));
         jLabel15.setText("Name");
 
+        jLabel16.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel16.setForeground(new java.awt.Color(102, 102, 102));
         jLabel16.setText("Age");
 
+        jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        jLabel17.setForeground(new java.awt.Color(102, 102, 102));
         jLabel17.setText("Exam");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -242,25 +253,22 @@ public class Exam3 extends javax.swing.JDialog {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addComponent(jLabel15)
                         .addGap(42, 42, 42)
                         .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(jLabel14))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel16)
                             .addComponent(jLabel17))
                         .addGap(45, 45, 45)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtAge)
-                            .addComponent(txtExamType))))
-                .addGap(6, 6, 6))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtExamType, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                            .addComponent(txtAge))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -279,12 +287,17 @@ public class Exam3 extends javax.swing.JDialog {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtExamType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel17))
-                .addContainerGap(347, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         jPanel3.add(jPanel2);
-        jPanel2.setBounds(645, 98, 186, 529);
+        jPanel2.setBounds(700, 480, 190, 230);
 
+        jPanel1.setBackground(new java.awt.Color(255, 234, 221));
+
+        btnSubmit.setBackground(new java.awt.Color(255, 137, 137));
+        btnSubmit.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnSubmit.setForeground(new java.awt.Color(255, 234, 221));
         btnSubmit.setText("Submit");
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -293,8 +306,12 @@ public class Exam3 extends javax.swing.JDialog {
         });
 
         lblResult.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblResult.setForeground(new java.awt.Color(102, 102, 102));
         lblResult.setText("Total result:");
 
+        btnShow.setBackground(new java.awt.Color(255, 137, 137));
+        btnShow.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        btnShow.setForeground(new java.awt.Color(255, 234, 221));
         btnShow.setText("Show all answers");
         btnShow.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -303,8 +320,12 @@ public class Exam3 extends javax.swing.JDialog {
         });
 
         lblTime.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        lblTime.setForeground(new java.awt.Color(102, 102, 102));
         lblTime.setText("The time count down");
 
+        btnStart.setBackground(new java.awt.Color(255, 137, 137));
+        btnStart.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        btnStart.setForeground(new java.awt.Color(255, 234, 221));
         btnStart.setText("Start");
         btnStart.setActionCommand("btnStart");
         btnStart.addActionListener(new java.awt.event.ActionListener() {
@@ -313,6 +334,9 @@ public class Exam3 extends javax.swing.JDialog {
             }
         });
 
+        btnExit.setBackground(new java.awt.Color(255, 60, 60));
+        btnExit.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnExit.setForeground(new java.awt.Color(255, 234, 221));
         btnExit.setText("Exit Exam");
         btnExit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -362,100 +386,100 @@ public class Exam3 extends javax.swing.JDialog {
         );
 
         jPanel3.add(jPanel1);
-        jPanel1.setBounds(348, 357, 258, 424);
+        jPanel1.setBounds(420, 380, 253, 390);
 
-        lblBody.setBackground(new java.awt.Color(255, 234, 221));
+        lblBody.setBackground(new java.awt.Color(255, 237, 235));
         lblBody.setColumns(20);
         lblBody.setForeground(new java.awt.Color(51, 51, 51));
         lblBody.setRows(5);
         jScrollPane1.setViewportView(lblBody);
 
         jPanel3.add(jScrollPane1);
-        jScrollPane1.setBounds(6, 6, 600, 320);
+        jScrollPane1.setBounds(0, 0, 930, 320);
 
         jLabel1.setText("Question 27");
         jPanel3.add(jLabel1);
-        jLabel1.setBounds(20, 335, 69, 16);
+        jLabel1.setBounds(60, 380, 69, 16);
         jPanel3.add(txtQ1);
-        txtQ1.setBounds(89, 332, 241, 22);
+        txtQ1.setBounds(130, 380, 241, 22);
 
         jLabel2.setText("Question 28");
         jPanel3.add(jLabel2);
-        jLabel2.setBounds(20, 363, 69, 16);
+        jLabel2.setBounds(60, 410, 69, 16);
         jPanel3.add(txtQ2);
-        txtQ2.setBounds(89, 360, 241, 22);
+        txtQ2.setBounds(130, 410, 241, 22);
 
         jLabel3.setText("Question 29");
         jPanel3.add(jLabel3);
-        jLabel3.setBounds(20, 394, 63, 16);
+        jLabel3.setBounds(60, 440, 63, 16);
         jPanel3.add(txtQ3);
-        txtQ3.setBounds(89, 391, 241, 22);
+        txtQ3.setBounds(130, 440, 241, 22);
 
         jLabel4.setText("Question 30");
         jPanel3.add(jLabel4);
-        jLabel4.setBounds(20, 422, 63, 16);
+        jLabel4.setBounds(60, 470, 63, 16);
         jPanel3.add(txtQ4);
-        txtQ4.setBounds(89, 419, 241, 22);
+        txtQ4.setBounds(130, 470, 241, 22);
 
         jLabel5.setText("Question 31");
         jPanel3.add(jLabel5);
-        jLabel5.setBounds(20, 462, 63, 16);
+        jLabel5.setBounds(60, 510, 63, 16);
         jPanel3.add(txtQ5);
-        txtQ5.setBounds(89, 459, 241, 22);
+        txtQ5.setBounds(130, 500, 241, 22);
         jPanel3.add(txtQ6);
-        txtQ6.setBounds(89, 487, 241, 22);
+        txtQ6.setBounds(130, 530, 241, 22);
 
         jLabel6.setText("Question 32");
         jPanel3.add(jLabel6);
-        jLabel6.setBounds(20, 487, 63, 16);
+        jLabel6.setBounds(60, 530, 63, 16);
 
         jLabel7.setText("Question 33");
         jPanel3.add(jLabel7);
-        jLabel7.setBounds(20, 515, 63, 16);
+        jLabel7.setBounds(60, 560, 63, 16);
         jPanel3.add(txtQ7);
-        txtQ7.setBounds(89, 515, 241, 22);
+        txtQ7.setBounds(130, 560, 241, 22);
 
         jLabel8.setText("Question 34");
         jPanel3.add(jLabel8);
-        jLabel8.setBounds(20, 543, 63, 16);
+        jLabel8.setBounds(60, 590, 63, 16);
         jPanel3.add(txtQ8);
-        txtQ8.setBounds(89, 543, 241, 22);
+        txtQ8.setBounds(130, 590, 241, 22);
         jPanel3.add(txtQ9);
-        txtQ9.setBounds(89, 571, 241, 22);
+        txtQ9.setBounds(130, 620, 241, 22);
 
         jLabel9.setText("Question 35");
         jPanel3.add(jLabel9);
-        jLabel9.setBounds(20, 571, 63, 16);
+        jLabel9.setBounds(60, 620, 63, 16);
 
         jLabel10.setText("Question 36");
         jPanel3.add(jLabel10);
-        jLabel10.setBounds(20, 602, 63, 16);
+        jLabel10.setBounds(60, 650, 63, 16);
         jPanel3.add(txtQ10);
-        txtQ10.setBounds(89, 599, 241, 22);
+        txtQ10.setBounds(130, 640, 241, 22);
         jPanel3.add(txtQ11);
-        txtQ11.setBounds(89, 630, 241, 22);
+        txtQ11.setBounds(130, 670, 241, 22);
 
         jLabel11.setText("Question 37");
         jPanel3.add(jLabel11);
-        jLabel11.setBounds(20, 630, 63, 16);
+        jLabel11.setBounds(60, 670, 63, 16);
 
         jLabel12.setText("Question 37");
         jPanel3.add(jLabel12);
-        jLabel12.setBounds(20, 658, 63, 16);
+        jLabel12.setBounds(60, 700, 63, 16);
         jPanel3.add(txtQ12);
-        txtQ12.setBounds(89, 658, 241, 22);
+        txtQ12.setBounds(130, 700, 241, 22);
         jPanel3.add(txtQ13);
-        txtQ13.setBounds(89, 686, 241, 22);
+        txtQ13.setBounds(130, 730, 241, 22);
 
         jLabel13.setText("Question 39");
         jPanel3.add(jLabel13);
-        jLabel13.setBounds(20, 686, 63, 16);
+        jLabel13.setBounds(60, 730, 63, 16);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 879, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 928, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
