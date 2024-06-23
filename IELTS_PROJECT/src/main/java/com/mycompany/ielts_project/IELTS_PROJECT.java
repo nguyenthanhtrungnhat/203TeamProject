@@ -10,7 +10,7 @@ package com.mycompany.ielts_project;
 public class IELTS_PROJECT {
 
     public static void main(String[] args) {
-        MainFrame mainFrame = new MainFrame();
+        LoginDialog mainFrame = new LoginDialog();
         mainFrame.setVisible(true);
     }
 }
