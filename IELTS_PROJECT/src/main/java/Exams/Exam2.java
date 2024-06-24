@@ -560,6 +560,7 @@ public class Exam2 extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 boolean startPressed = false;
+boolean submit = false;
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
           if (startPressed == false) {
             JOptionPane.showMessageDialog(null, "You must Start first!");
@@ -580,6 +581,7 @@ boolean startPressed = false;
                 String examType = txtExamType.getText().toString();
                 Student student = new Student(name, age, score, examType);
                 listStudent.Add(student);
+                submit = true;
                 saveList();
 
             } else {
@@ -599,7 +601,7 @@ boolean startPressed = false;
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     private void btnShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowActionPerformed
-        // Read answers from the file
+       if(submit==true){
         String fileContent = readTextFromFile("answer.txt");
         String[] answers = fileContent.split("\n");
 
@@ -624,7 +626,8 @@ boolean startPressed = false;
         } else {
             JOptionPane.showMessageDialog(this, "All questions must be answered.", "Error", JOptionPane.ERROR_MESSAGE);
         }
-
+       }else
+           JOptionPane.showMessageDialog(null, "Submit first");
     }//GEN-LAST:event_btnShowActionPerformed
     private void saveList() {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter("ListStudent.txt", true))) {
@@ -661,6 +664,7 @@ boolean startPressed = false;
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
        startPressed = false;
+        submit = false;
         dispose();
     }//GEN-LAST:event_btnExitActionPerformed
 

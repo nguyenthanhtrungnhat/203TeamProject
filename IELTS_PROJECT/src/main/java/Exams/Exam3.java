@@ -45,7 +45,7 @@ public class Exam3 extends javax.swing.JDialog {
     }
 
     private void saveList() {
-          try (BufferedWriter writer = new BufferedWriter(new FileWriter("ListStudent.txt", true))) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter("ListStudent.txt", true))) {
             for (Student student : listStudent.getList()) {
                 writer.write("Name: " + student.getName() + ", Age: " + student.getAge() + ", " + student.getScore() + ", Exam Type: " + student.getExamType());
                 writer.newLine();
@@ -493,7 +493,7 @@ public class Exam3 extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 boolean startPressed = false;
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
-         if (startPressed == false) {
+        if (startPressed == false) {
             JOptionPane.showMessageDialog(null, "You must Start first!");
         } else {
             // Check if required fields are filled
@@ -512,6 +512,7 @@ boolean startPressed = false;
                 String examType = txtExamType.getText().toString();
                 Student student = new Student(name, age, score, examType);
                 listStudent.Add(student);
+                submit = true;
                 saveList();
 
             } else {
@@ -529,33 +530,35 @@ boolean startPressed = false;
             }
         }
     }//GEN-LAST:event_btnSubmitActionPerformed
-
+    boolean submit = false;
     private void btnShowActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowActionPerformed
-        // Read answers from the file
-        String fileContent = readTextFromFile("answer.txt");
-        String[] answers = fileContent.split("\n");
+        if (submit == true) {
+            String fileContent = readTextFromFile("answer.txt");
+            String[] answers = fileContent.split("\n");
 
-        if (!txtQ1.getText().isEmpty() && !txtQ2.getText().isEmpty() && !txtQ3.getText().isEmpty()
-                && !txtQ4.getText().isEmpty() && !txtQ8.getText().isEmpty() && !txtQ9.getText().isEmpty()
-                && !txtQ10.getText().isEmpty() && !txtQ11.getText().isEmpty() && !txtQ12.getText().isEmpty()
-                && !txtQ13.getText().isEmpty()) {
-            // Show answers in the text fields and combo boxes
-            txtQ1.setText(answers[0]);
-            txtQ2.setText(answers[1]);
-            txtQ3.setText(answers[2]);
-            txtQ4.setText(answers[3]);
-            txtQ5.setText(answers[4]);
-            txtQ6.setText(answers[5]);
-            txtQ7.setText(answers[6]);
-            txtQ8.setText(answers[7]);
-            txtQ9.setText(answers[8]);
-            txtQ10.setText(answers[9]);
-            txtQ11.setText(answers[10]);
-            txtQ12.setText(answers[11]);
-            txtQ13.setText(answers[12]);
-        } else {
-            JOptionPane.showMessageDialog(this, "All questions must be answered.", "Error", JOptionPane.ERROR_MESSAGE);
-        }
+            if (!txtQ1.getText().isEmpty() && !txtQ2.getText().isEmpty() && !txtQ3.getText().isEmpty()
+                    && !txtQ4.getText().isEmpty() && !txtQ8.getText().isEmpty() && !txtQ9.getText().isEmpty()
+                    && !txtQ10.getText().isEmpty() && !txtQ11.getText().isEmpty() && !txtQ12.getText().isEmpty()
+                    && !txtQ13.getText().isEmpty()) {
+                // Show answers in the text fields and combo boxes
+                txtQ1.setText(answers[0]);
+                txtQ2.setText(answers[1]);
+                txtQ3.setText(answers[2]);
+                txtQ4.setText(answers[3]);
+                txtQ5.setText(answers[4]);
+                txtQ6.setText(answers[5]);
+                txtQ7.setText(answers[6]);
+                txtQ8.setText(answers[7]);
+                txtQ9.setText(answers[8]);
+                txtQ10.setText(answers[9]);
+                txtQ11.setText(answers[10]);
+                txtQ12.setText(answers[11]);
+                txtQ13.setText(answers[12]);
+            } else {
+                JOptionPane.showMessageDialog(this, "All questions must be answered.", "Error", JOptionPane.ERROR_MESSAGE);
+            }
+        } else
+            JOptionPane.showMessageDialog(null, "Submit first");
     }//GEN-LAST:event_btnShowActionPerformed
 
     private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
@@ -579,7 +582,8 @@ boolean startPressed = false;
     }//GEN-LAST:event_btnStartActionPerformed
 
     private void btnExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnExitActionPerformed
-       startPressed = false;
+        startPressed = false;
+        submit = false;
         dispose();
     }//GEN-LAST:event_btnExitActionPerformed
 
