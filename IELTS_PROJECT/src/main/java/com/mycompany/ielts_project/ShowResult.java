@@ -204,12 +204,14 @@ public class ShowResult extends javax.swing.JDialog {
     }//GEN-LAST:event_btnSaveActionPerformed
 
     private void btnRefActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRefActionPerformed
+          txtResult.setEditable(true);
         txtSearchByName.setText(""); // Clear the text in txtSearch
         load();
 
     }//GEN-LAST:event_btnRefActionPerformed
 
     private void btnSearchByNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchByNameActionPerformed
+        txtResult.setEditable(false);
         String searchTerm = txtSearchByName.getText().trim();
         if (searchTerm.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Please enter Name to search!");
